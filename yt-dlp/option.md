@@ -121,7 +121,7 @@
 
 <br>
 
-  ### Network Options
+### Network Options
 
 - `--proxy URL`<br>
   指定したHTTP/HTTPS/SOCKSプロキシを使用します。
