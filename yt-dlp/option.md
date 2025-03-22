@@ -1,120 +1,122 @@
+# qwerty
+
 ### General Options
 
-- `-h, --help`  
+- `-h, --help`
   ヘルプテキストを表示して終了
 
-- `--version`  
+- `--version`
   プログラムのバージョンを表示して終了
 
-- `-U, --update`  
+- `-U, --update`
   このプログラムを最新バージョンに更新
 
-- `--no-update`  
+- `--no-update`
   更新チェックを行わない（デフォルト）
 
-- `--update-to [CHANNEL]@[TAG]`  
-  特定のバージョンにアップグレード／ダウングレードします。  
-  `CHANNEL`はリポジトリでも指定可能です。  
-  `CHANNEL`と`TAG`は省略するとそれぞれ「stable」と「latest」がデフォルトとなります。  
+- `--update-to [CHANNEL]@[TAG]`
+  特定のバージョンにアップグレード／ダウングレードします。
+  `CHANNEL`はリポジトリでも指定可能です。
+  `CHANNEL`と`TAG`は省略するとそれぞれ「stable」と「latest」がデフォルトとなります。
   詳細は「UPDATE」を参照。サポートされているチャンネル：`stable`, `nightly`, `master`
 
-- `-i, --ignore-errors`  
-  ダウンロードおよび後処理エラーを無視します。  
+- `-i, --ignore-errors`
+  ダウンロードおよび後処理エラーを無視します。
   後処理が失敗してもダウンロードは成功と見なされます
 
-- `--no-abort-on-error`  
-  ダウンロードエラーが発生した場合、次の動画をダウンロードし続けます。  
+- `--no-abort-on-error`
+  ダウンロードエラーが発生した場合、次の動画をダウンロードし続けます。
   例：プレイリスト内の利用不可な動画をスキップ（デフォルト）
 
-- `--abort-on-error`  
+- `--abort-on-error`
   エラーが発生した場合、それ以降の動画のダウンロードを中止します（エイリアス: `--no-ignore-errors`）
 
-- `--dump-user-agent`  
+- `--dump-user-agent`
   現在のユーザーエージェントを表示して終了
 
-- `--list-extractors`  
+- `--list-extractors`
   サポートされている全てのエクストラクターを表示して終了
 
-- `--extractor-descriptions`  
+- `--extractor-descriptions`
   サポートされている全てのエクストラクターの説明を表示して終了
 
-- `--use-extractors NAMES`  
-  使用するエクストラクター名をカンマ区切りで指定します。  
-  正規表現や「all」、「default」、「end」（URL末尾一致）も使用可能。  
-  例：`--ies "holodex.*,end,youtube"`。  
-  名前の前に`-`を付けることで除外できます。  
-  例：`--ies default,-generic`。  
+- `--use-extractors NAMES`
+  使用するエクストラクター名をカンマ区切りで指定します。
+  正規表現や「all」、「default」、「end」（URL末尾一致）も使用可能。
+  例：`--ies "holodex.*,end,youtube"`。
+  名前の前に`-`を付けることで除外できます。
+  例：`--ies default,-generic`。
   エクストラクター名のリストは`--list-extractors`で確認できます。（エイリアス: `--ies`）
 
-- `--default-search PREFIX`  
-  URLが未指定の場合に使用する検索プレフィックスを設定します。  
-  例：`"gvsearch2:python"`は「python」でGoogle動画から2本をダウンロードします。  
-  プレフィックス「auto」を使うと、yt-dlpが推測します（`auto_warning`で推測時に警告）。  
+- `--default-search PREFIX`
+  URLが未指定の場合に使用する検索プレフィックスを設定します。
+  例：`"gvsearch2:python"`は「python」でGoogle動画から2本をダウンロードします。
+  プレフィックス「auto」を使うと、yt-dlpが推測します（`auto_warning`で推測時に警告）。
   `error`を指定するとエラーになります。デフォルト値「fixup_error」はURLの修正を試みますが、修正できない場合はエラーを出します。
 
-- `--ignore-config`  
-  `--config-locations`で指定された設定ファイル以外の設定ファイルを読み込まないようにします。  
+- `--ignore-config`
+  `--config-locations`で指定された設定ファイル以外の設定ファイルを読み込まないようにします。
   後方互換性のため、このオプションがシステム設定ファイル内にある場合、ユーザー設定は読み込まれません。（エイリアス: `--no-config`）
 
-- `--no-config-locations`  
-  カスタム設定ファイルを読み込まない（デフォルト）。  
+- `--no-config-locations`
+  カスタム設定ファイルを読み込まない（デフォルト）。
   設定ファイル内で指定された`--config-locations`は無視されます。
 
-- `--config-locations PATH`  
-  メイン設定ファイルの場所。  
-  設定ファイルのパスまたはそのディレクトリを指定します（`-`は標準入力）。  
+- `--config-locations PATH`
+  メイン設定ファイルの場所。
+  設定ファイルのパスまたはそのディレクトリを指定します（`-`は標準入力）。
   複数回使用可能で、他の設定ファイル内でも使用できます。
 
-- `--plugin-dirs PATH`  
-  プラグインを検索する追加ディレクトリのパス。  
+- `--plugin-dirs PATH`
+  プラグインを検索する追加ディレクトリのパス。
   複数回指定可能。`default`を指定するとデフォルトのプラグインディレクトリを検索します（デフォルト）。
 
-- `--no-plugin-dirs`  
+- `--no-plugin-dirs`
   プラグインディレクトリをクリアします。デフォルトや前回指定した`--plugin-dirs`も含まれます。
 
-- `--flat-playlist`  
+- `--flat-playlist`
   プレイリストのURL結果エントリを抽出しません。一部のエントリのメタデータが欠落する可能性があり、ダウンロードがスキップされることがあります。
 
-- `--no-flat-playlist`  
+- `--no-flat-playlist`
   プレイリストの動画を完全に抽出します（デフォルト）。
 
-- `--live-from-start`  
-  ライブストリームを開始時からダウンロードします。  
+- `--live-from-start`
+  ライブストリームを開始時からダウンロードします。
   現在、YouTubeのみでサポートされています（実験的機能）。
 
-- `--no-live-from-start`  
+- `--no-live-from-start`
   ライブストリームを現在の時刻からダウンロードします（デフォルト）。
 
-- `--wait-for-video MIN[-MAX]`  
-  予定されたストリームが利用可能になるまで待機します。  
+- `--wait-for-video MIN[-MAX]`
+  予定されたストリームが利用可能になるまで待機します。
   最小（または範囲）の待機時間を指定します。
 
-- `--no-wait-for-video`  
+- `--no-wait-for-video`
   予定されたストリームを待機せずにダウンロードを行います（デフォルト）。
 
-- `--mark-watched`  
+- `--mark-watched`
   動画を視聴済みとしてマークします（`--simulate`でも）。
 
-- `--no-mark-watched`  
+- `--no-mark-watched`
   動画を視聴済みとしてマークしません（デフォルト）。
 
-- `--color [STREAM:]POLICY`  
-  出力に色コードを出力するかどうかを指定します。  
-  `STREAM`（stdoutまたはstderr）を指定して設定を適用できます。  
-  値は「always」、「auto」（デフォルト）、「never」、「no_color」などがあります。  
-  「auto-tty」または「no_color-tty」を指定すると、ターミナルのサポートに基づいて自動で判断されます。  
+- `--color [STREAM:]POLICY`
+  出力に色コードを出力するかどうかを指定します。
+  `STREAM`（stdoutまたはstderr）を指定して設定を適用できます。
+  値は「always」、「auto」（デフォルト）、「never」、「no_color」などがあります。
+  「auto-tty」または「no_color-tty」を指定すると、ターミナルのサポートに基づいて自動で判断されます。
   複数回使用可能。
 
-- `--compat-options OPTS`  
-  youtube-dlやyoutube-dlcの設定と互換性を保つためのオプション。  
+- `--compat-options OPTS`
+  youtube-dlやyoutube-dlcの設定と互換性を保つためのオプション。
   yt-dlpで行った変更を元に戻すことができます。「Differences in default behavior」を参照。
 
-- `--alias ALIASES OPTIONS`  
-  オプション文字列にエイリアスを作成します。エイリアスは「--」で始まります。  
-  引数はPythonの文字列フォーマットに従って解析されます。  
-  例：`--alias get-audio,-X "-S=aext:{0},abr -x --audio-format {0}"`  
-  これにより、`--get-audio`と`-X`が作成され、引数`ARG0`を受け取ると`-S=aext:ARG0,abr -x --audio-format ARG0`に展開されます。  
-  定義されたエイリアスは`--help`でリストされます。エイリアスオプションはさらにエイリアスをトリガーすることがあるので、再帰的なオプションを避けるように注意してください。  
+- `--alias ALIASES OPTIONS`
+  オプション文字列にエイリアスを作成します。エイリアスは「--」で始まります。
+  引数はPythonの文字列フォーマットに従って解析されます。
+  例：`--alias get-audio,-X "-S=aext:{0},abr -x --audio-format {0}"`
+  これにより、`--get-audio`と`-X`が作成され、引数`ARG0`を受け取ると`-S=aext:ARG0,abr -x --audio-format ARG0`に展開されます。
+  定義されたエイリアスは`--help`でリストされます。エイリアスオプションはさらにエイリアスをトリガーすることがあるので、再帰的なオプションを避けるように注意してください。
   各エイリアスは最大100回までトリガーされます。このオプションは複数回使用可能です。
 
 
@@ -122,221 +124,221 @@
 
   ### Network Options
 
-- `--proxy URL`  
-  指定したHTTP/HTTPS/SOCKSプロキシを使用します。  
-  SOCKSプロキシを有効にするには、適切なスキームを指定します。  
-  例：`socks5://user:pass@127.0.0.1:1080/`。  
+- `--proxy URL`
+  指定したHTTP/HTTPS/SOCKSプロキシを使用します。
+  SOCKSプロキシを有効にするには、適切なスキームを指定します。
+  例：`socks5://user:pass@127.0.0.1:1080/`。
   直接接続するには空文字列`--proxy ""`を渡します。
 
-- `--socket-timeout SECONDS`  
+- `--socket-timeout SECONDS`
   諦める前に待機する時間（秒単位）
 
-- `--source-address IP`  
+- `--source-address IP`
   バインドするクライアント側のIPアドレスを指定します。
 
-- `--impersonate CLIENT[:OS]`  
-  リクエストに対して擬似的にクライアントを指定します。  
-  例：`chrome`, `chrome-110`, `chrome:windows-10`。  
-  `--impersonate=""`を指定すると、任意のクライアントを擬似的に指定します。  
+- `--impersonate CLIENT[:OS]`
+  リクエストに対して擬似的にクライアントを指定します。
+  例：`chrome`, `chrome-110`, `chrome:windows-10`。
+  `--impersonate=""`を指定すると、任意のクライアントを擬似的に指定します。
   注意：全てのリクエストで擬似クライアントを強制すると、ダウンロード速度や安定性に悪影響を及ぼす可能性があります。
 
-- `--list-impersonate-targets`  
+- `--list-impersonate-targets`
   擬似クライアントとして使用可能なクライアントのリストを表示します。
 
-- `-4, --force-ipv4`  
+- `-4, --force-ipv4`
   すべての接続をIPv4経由で行います。
 
-- `-6, --force-ipv6`  
+- `-6, --force-ipv6`
   すべての接続をIPv6経由で行います。
 
-- `--enable-file-urls`  
-  `file://` URLを有効にします。  
+- `--enable-file-urls`
+  `file://` URLを有効にします。
   セキュリティ上の理由から、デフォルトでは無効になっています。
 
 ### Geo-restriction
 
-- `--geo-verification-proxy URL`  
-  一部の地域制限されたサイトのIPアドレスを確認するために、このプロキシを使用します。  
+- `--geo-verification-proxy URL`
+  一部の地域制限されたサイトのIPアドレスを確認するために、このプロキシを使用します。
   実際のダウンロードには、`--proxy`で指定されたデフォルトのプロキシ（またはオプションが指定されていない場合はプロキシなし）が使用されます。
 
-- `--xff VALUE`  
-  地理的制限を回避するために、`X-Forwarded-For` HTTPヘッダーをどのように偽装するかを指定します。  
-  値は以下のいずれかです：  
-  - `"default"`（有効な場合のみ使用）  
-  - `"never"`  
-  - CIDR表記でのIPブロック  
+- `--xff VALUE`
+  地理的制限を回避するために、`X-Forwarded-For` HTTPヘッダーをどのように偽装するかを指定します。
+  値は以下のいずれかです：
+  - `"default"`（有効な場合のみ使用）
+  - `"never"`
+  - CIDR表記でのIPブロック
   - 2文字のISO 3166-2国コード
 
 
 
 ### Video Selection
 
-- `-I, --playlist-items ITEM_SPEC`  
-  ダウンロードするアイテムのプレイリストインデックスをカンマ区切りで指定します。  
-  範囲指定には`[START]:[STOP][:STEP]`を使用できます。  
-  後方互換性のため、`START-STOP`形式もサポートされています。  
-  右からカウントするには負のインデックスを使用し、逆順でダウンロードするには負の`STEP`を使用します。  
+- `-I, --playlist-items ITEM_SPEC`
+  ダウンロードするアイテムのプレイリストインデックスをカンマ区切りで指定します。
+  範囲指定には`[START]:[STOP][:STEP]`を使用できます。
+  後方互換性のため、`START-STOP`形式もサポートされています。
+  右からカウントするには負のインデックスを使用し、逆順でダウンロードするには負の`STEP`を使用します。
   例：`-I 1:3,7,-5::2`をプレイリストのサイズ15に使用すると、インデックス1、2、3、7、11、13、15のアイテムがダウンロードされます。
 
-- `--min-filesize SIZE`  
-  ファイルサイズが指定したサイズより小さい場合、ダウンロードを中止します。  
+- `--min-filesize SIZE`
+  ファイルサイズが指定したサイズより小さい場合、ダウンロードを中止します。
   例：50kや44.6Mなどの形式で指定します。
 
-- `--max-filesize SIZE`  
-  ファイルサイズが指定したサイズより大きい場合、ダウンロードを中止します。  
+- `--max-filesize SIZE`
+  ファイルサイズが指定したサイズより大きい場合、ダウンロードを中止します。
   例：50kや44.6Mなどの形式で指定します。
 
-- `--date DATE`  
-  この日付にアップロードされた動画のみをダウンロードします。  
-  日付は「YYYYMMDD」形式または、`[now|today|yesterday][-N[day|week|month|year]]`の形式で指定できます。  
+- `--date DATE`
+  この日付にアップロードされた動画のみをダウンロードします。
+  日付は「YYYYMMDD」形式または、`[now|today|yesterday][-N[day|week|month|year]]`の形式で指定できます。
   例：`--date today-2weeks`は、2週間前の同日にアップロードされた動画のみをダウンロードします。
 
-- `--datebefore DATE`  
-  この日付以前にアップロードされた動画のみをダウンロードします。  
+- `--datebefore DATE`
+  この日付以前にアップロードされた動画のみをダウンロードします。
   日付形式は`--date`と同じです。
 
-- `--dateafter DATE`  
-  この日付以降にアップロードされた動画のみをダウンロードします。  
+- `--dateafter DATE`
+  この日付以降にアップロードされた動画のみをダウンロードします。
   日付形式は`--date`と同じです。
 
-- `--match-filters FILTER`  
-  動画フィルター。  
-  任意の「OUTPUT TEMPLATE」フィールドを数値や文字列と比較できます。  
-  フィルタリングの条件として、フィールドが存在する場合はそのフィールド名を指定し、`!field`でフィールドが存在しない場合を指定できます。  
-  複数の条件をチェックするには`&`を使用します。  
-  例：`--match-filters !is_live --match-filters "like_count>?100 & description~='(?i)\bcats \& dogs\b'"`は、ライブでない動画、または「like_count」が100以上の動画で、「cats & dogs」というフレーズを含む説明の動画のみを対象とします。  
+- `--match-filters FILTER`
+  動画フィルター。
+  任意の「OUTPUT TEMPLATE」フィールドを数値や文字列と比較できます。
+  フィルタリングの条件として、フィールドが存在する場合はそのフィールド名を指定し、`!field`でフィールドが存在しない場合を指定できます。
+  複数の条件をチェックするには`&`を使用します。
+  例：`--match-filters !is_live --match-filters "like_count>?100 & description~='(?i)\bcats \& dogs\b'"`は、ライブでない動画、または「like_count」が100以上の動画で、「cats & dogs」というフレーズを含む説明の動画のみを対象とします。
   `--match-filters -`を使うと、ダウンロードするかどうかをインタラクティブに確認できます。
 
-- `--no-match-filters`  
+- `--no-match-filters`
   フィルタを使用しません（デフォルト）。
 
-- `--break-match-filters FILTER`  
+- `--break-match-filters FILTER`
   `--match-filters`と同じですが、動画が拒否された場合、ダウンロードプロセスを停止します。
 
-- `--no-break-match-filters`  
+- `--no-break-match-filters`
   `--break-match-filters`を使用しません（デフォルト）。
 
-- `--no-playlist`  
+- `--no-playlist`
   プレイリストが含まれるURLの場合、動画のみをダウンロードします。
 
-- `--yes-playlist`  
+- `--yes-playlist`
   プレイリストが含まれるURLの場合、プレイリストをダウンロードします。
 
-- `--age-limit YEARS`  
+- `--age-limit YEARS`
   指定した年齢制限に適した動画のみをダウンロードします。
 
-- `--download-archive FILE`  
-  アーカイブファイルに記載されていない動画のみをダウンロードします。  
+- `--download-archive FILE`
+  アーカイブファイルに記載されていない動画のみをダウンロードします。
   ダウンロードした動画のIDをアーカイブファイルに記録します。
 
-- `--no-download-archive`  
+- `--no-download-archive`
   アーカイブファイルを使用しません（デフォルト）。
 
-- `--max-downloads NUMBER`  
+- `--max-downloads NUMBER`
   指定した数だけファイルをダウンロードしたら中止します。
 
-- `--break-on-existing`  
+- `--break-on-existing`
   アーカイブファイルに存在するファイルを見つけた時点でダウンロードプロセスを停止します。
 
-- `--no-break-on-existing`  
+- `--no-break-on-existing`
   アーカイブファイルに存在するファイルを見つけてもダウンロードプロセスを停止しません（デフォルト）。
 
-- `--break-per-input`  
+- `--break-per-input`
   `--max-downloads`, `--break-on-existing`, `--break-match-filters`, および自動番号付けを各入力URLごとにリセットします。
 
-- `--no-break-per-input`  
+- `--no-break-per-input`
   `--break-on-existing`などのオプションは、ダウンロードキュー全体に影響を与えます。
 
-- `--skip-playlist-after-errors N`  
+- `--skip-playlist-after-errors N`
   プレイリストでエラーが発生した場合、N回の失敗まで許容し、それ以降はプレイリストの残りの部分をスキップします。
 
 
-  
+
 ### Download Options
 
-- `-N, --concurrent-fragments N`  
+- `-N, --concurrent-fragments N`
   DASH/hlsnativeビデオのフラグメントを並行してダウンロードする数（デフォルトは1）。
 
-- `-r, --limit-rate RATE`  
+- `-r, --limit-rate RATE`
   最大ダウンロード速度（バイト/秒）。例：50Kや4.2M。
 
-- `--throttled-rate RATE`  
+- `--throttled-rate RATE`
   ダウンロード速度がこの値以下の場合、帯域制限がかかっていると見なし、ビデオデータを再抽出します。例：100K。
 
-- `-R, --retries RETRIES`  
+- `-R, --retries RETRIES`
   再試行回数（デフォルトは10回）、または「infinite」。
 
-- `--file-access-retries RETRIES`  
+- `--file-access-retries RETRIES`
   ファイルアクセスエラー時の再試行回数（デフォルトは3回）、または「infinite」。
 
-- `--fragment-retries RETRIES`  
+- `--fragment-retries RETRIES`
   フラグメントの再試行回数（デフォルトは10回）、または「infinite」（DASH、hlsnative、ISM）。
 
-- `--retry-sleep [TYPE:]EXPR`  
+- `--retry-sleep [TYPE:]EXPR`
   再試行の間に睡眠する時間（秒単位）。オプションで再試行タイプ（http（デフォルト）、fragment、file_access、extractor）を指定し、その再試行に適用できます。EXPRには数値、線形（`linear=START[:END[:STEP=1]]`）、または指数（`exp=START[:END[:BASE=2]]`）を使用できます。このオプションは複数回使用して、異なる再試行タイプに対して異なる睡眠時間を設定できます。
 
-- `--skip-unavailable-fragments`  
-  DASH、hlsnative、ISMダウンロードで利用できないフラグメントをスキップします（デフォルト）。  
+- `--skip-unavailable-fragments`
+  DASH、hlsnative、ISMダウンロードで利用できないフラグメントをスキップします（デフォルト）。
   （エイリアス：`--no-abort-on-unavailable-fragments`）
 
-- `--abort-on-unavailable-fragments`  
-  フラグメントが利用できない場合、ダウンロードを中止します。  
+- `--abort-on-unavailable-fragments`
+  フラグメントが利用できない場合、ダウンロードを中止します。
   （エイリアス：`--no-skip-unavailable-fragments`）
 
-- `--keep-fragments`  
+- `--keep-fragments`
   ダウンロードが完了した後、ダウンロードしたフラグメントをディスクに保持します。
 
-- `--no-keep-fragments`  
+- `--no-keep-fragments`
   ダウンロードが完了した後、ダウンロードしたフラグメントを削除します（デフォルト）。
 
-- `--buffer-size SIZE`  
+- `--buffer-size SIZE`
   ダウンロードバッファのサイズ。例：1024または16K（デフォルトは1024）。
 
-- `--resize-buffer`  
+- `--resize-buffer`
   バッファサイズが自動的に調整されます（デフォルトの`--buffer-size`から開始）。
 
-- `--no-resize-buffer`  
+- `--no-resize-buffer`
   バッファサイズを自動的に調整しません。
 
-- `--http-chunk-size SIZE`  
-  チャンクベースのHTTPダウンロードのチャンクサイズ。例：10485760または10M（デフォルトは無効）。  
+- `--http-chunk-size SIZE`
+  チャンクベースのHTTPダウンロードのチャンクサイズ。例：10485760または10M（デフォルトは無効）。
   ウェブサーバーによる帯域制限を回避するために役立つ場合があります（実験的）。
 
-- `--playlist-random`  
+- `--playlist-random`
   プレイリストの動画をランダムな順序でダウンロードします。
 
-- `--lazy-playlist`  
+- `--lazy-playlist`
   プレイリストのエントリを受信する際に処理します。これにより`n_entries`、`--playlist-random`、`--playlist-reverse`が無効になります。
 
-- `--no-lazy-playlist`  
+- `--no-lazy-playlist`
   プレイリストのすべての動画を解析した後にのみ処理します（デフォルト）。
 
-- `--xattr-set-filesize`  
+- `--xattr-set-filesize`
   ファイルのx属性`ytdl.filesize`に予想されるファイルサイズを設定します。
 
-- `--hls-use-mpegts`  
-  HLSビデオ用にmpegtsコンテナを使用します。これにより、いくつかのプレーヤーでビデオをダウンロード中に再生できるようになり、ダウンロードが中断された場合のファイル破損のリスクが減少します。  
+- `--hls-use-mpegts`
+  HLSビデオ用にmpegtsコンテナを使用します。これにより、いくつかのプレーヤーでビデオをダウンロード中に再生できるようになり、ダウンロードが中断された場合のファイル破損のリスクが減少します。
   これはライブストリームのダウンロード時にデフォルトで有効です。
 
-- `--no-hls-use-mpegts`  
+- `--no-hls-use-mpegts`
   HLSビデオでmpegtsコンテナを使用しません。ライブストリーム以外のダウンロード時はこれがデフォルトです。
 
-- `--download-sections REGEX`  
-  正規表現に一致するチャプターのみをダウンロードします。  
-  `*`プレフィックスを使うと、チャプターではなく時間範囲を指定できます。負のタイムスタンプは終了から計算されます。  
-  `*from-url`を使うと、URLから抽出した`start_time`と`end_time`の間をダウンロードできます。  
+- `--download-sections REGEX`
+  正規表現に一致するチャプターのみをダウンロードします。
+  `*`プレフィックスを使うと、チャプターではなく時間範囲を指定できます。負のタイムスタンプは終了から計算されます。
+  `*from-url`を使うと、URLから抽出した`start_time`と`end_time`の間をダウンロードできます。
   このオプションは複数回使用して複数のセクションをダウンロードできます。例：`--download-sections "*10:15-inf"`、`--download-sections "intro"`。
 
-- `--downloader [PROTO:]NAME`  
-  使用する外部ダウンローダーの名前またはパス。プロトコル（http、ftp、m3u8、dash、rstp、rtmp、mms）を指定して、それに対応するダウンローダーを指定できます。  
-  現在サポートされているダウンローダー：`native`、`aria2c`、`avconv`、`axel`、`curl`、`ffmpeg`、`httpie`、`wget`。  
-  このオプションは、異なるプロトコルに対して異なるダウンローダーを設定するために複数回使用できます。例：`--downloader aria2c --downloader "dash,m3u8:native"`は、http/ftpダウンロードにaria2cを、dash/m3u8ダウンロードにnativeダウンローダーを使用します。  
+- `--downloader [PROTO:]NAME`
+  使用する外部ダウンローダーの名前またはパス。プロトコル（http、ftp、m3u8、dash、rstp、rtmp、mms）を指定して、それに対応するダウンローダーを指定できます。
+  現在サポートされているダウンローダー：`native`、`aria2c`、`avconv`、`axel`、`curl`、`ffmpeg`、`httpie`、`wget`。
+  このオプションは、異なるプロトコルに対して異なるダウンローダーを設定するために複数回使用できます。例：`--downloader aria2c --downloader "dash,m3u8:native"`は、http/ftpダウンロードにaria2cを、dash/m3u8ダウンロードにnativeダウンローダーを使用します。
   （エイリアス：`--external-downloader`）
 
-- `--downloader-args NAME:ARGS`  
-  外部ダウンローダーに渡す引数を指定します。ダウンローダー名と引数をコロン`:`で区切って指定します。  
-  `ffmpeg`には、`--postprocessor-args`と同じ構文を使って異なる位置に引数を渡すことができます。  
-  このオプションは、異なるダウンローダーに異なる引数を渡すために複数回使用できます。  
+- `--downloader-args NAME:ARGS`
+  外部ダウンローダーに渡す引数を指定します。ダウンローダー名と引数をコロン`:`で区切って指定します。
+  `ffmpeg`には、`--postprocessor-args`と同じ構文を使って異なる位置に引数を渡すことができます。
+  このオプションは、異なるダウンローダーに異なる引数を渡すために複数回使用できます。
   （エイリアス：`--external-downloader-args`）
 
 
@@ -344,223 +346,223 @@
 
 ### Filesystem Options
 
-- `-a, --batch-file FILE`  
+- `-a, --batch-file FILE`
   ダウンロードするURLを含むファイル（"-"で標準入力）。各行に1つのURLを記載します。`#`、`;`、または`]`で始まる行はコメントとして扱われ、無視されます。
 
-- `--no-batch-file`  
+- `--no-batch-file`
   バッチファイルからURLを読み込まない（デフォルト）。
 
-- `-P, --paths [TYPES:]PATH`  
+- `-P, --paths [TYPES:]PATH`
   ファイルをダウンロードするパスを指定します。ファイルの種類とパスをコロン（`:`）で区切って指定します。`--output`と同じTYPESがサポートされます。さらに、「home」（デフォルト）や「temp」パスを指定することもできます。すべての中間ファイルはまずtempパスにダウンロードされ、ダウンロードが完了した後に最終ファイルがhomeパスに移動されます。このオプションは、`--output`が絶対パスの場合は無視されます。
 
-- `-o, --output [TYPES:]TEMPLATE`  
+- `-o, --output [TYPES:]TEMPLATE`
   出力ファイル名のテンプレート。詳細は「OUTPUT TEMPLATE」を参照してください。
 
-- `--output-na-placeholder TEXT`  
+- `--output-na-placeholder TEXT`
   `--output`に指定されたフィールドが利用できない場合のプレースホルダ（デフォルトは"NA"）。
 
-- `--restrict-filenames`  
+- `--restrict-filenames`
   ファイル名をASCII文字のみに制限し、`&`やスペースをファイル名に含めないようにします。
 
-- `--no-restrict-filenames`  
+- `--no-restrict-filenames`
   ファイル名にUnicode文字、`&`、スペースを許可します（デフォルト）。
 
-- `--windows-filenames`  
+- `--windows-filenames`
   ファイル名をWindows互換に強制します。
 
-- `--no-windows-filenames`  
+- `--no-windows-filenames`
   ファイル名を最小限にサニタイズします。
 
-- `--trim-filenames LENGTH`  
+- `--trim-filenames LENGTH`
   ファイル名の長さ（拡張子を除く）を指定した文字数に制限します。
 
-- `-w, --no-overwrites`  
+- `-w, --no-overwrites`
   既存のファイルを上書きしません。
 
-- `--force-overwrites`  
+- `--force-overwrites`
   すべてのビデオとメタデータファイルを上書きします。このオプションには`--no-continue`も含まれます。
 
-- `--no-force-overwrites`  
+- `--no-force-overwrites`
   ビデオは上書きせず、関連するファイルのみを上書きします（デフォルト）。
 
-- `-c, --continue`  
+- `-c, --continue`
   部分的にダウンロードされたファイルやフラグメントを再開します（デフォルト）。
 
-- `--no-continue`  
+- `--no-continue`
   部分的にダウンロードされたフラグメントを再開しません。ファイルがフラグメントでない場合、ダウンロードは最初からやり直されます。
 
-- `--part`  
+- `--part`
   `.part`ファイルを使用して、出力ファイルに直接書き込まずにダウンロードします（デフォルト）。
 
-- `--no-part`  
+- `--no-part`
   `.part`ファイルを使用せず、出力ファイルに直接書き込みます。
 
-- `--mtime`  
+- `--mtime`
   Last-modifiedヘッダーを使用してファイルの変更時刻を設定します（デフォルト）。
 
-- `--no-mtime`  
+- `--no-mtime`
   Last-modifiedヘッダーを使用してファイルの変更時刻を設定しません。
 
-- `--write-description`  
+- `--write-description`
   ビデオの説明を`.description`ファイルに書き込みます。
 
-- `--no-write-description`  
+- `--no-write-description`
   ビデオの説明を書き込みません（デフォルト）。
 
-- `--write-info-json`  
+- `--write-info-json`
   ビデオのメタデータを`.info.json`ファイルに書き込みます（これには個人情報が含まれる場合があります）。
 
-- `--no-write-info-json`  
+- `--no-write-info-json`
   ビデオのメタデータを書き込みません（デフォルト）。
 
-- `--write-playlist-metafiles`  
+- `--write-playlist-metafiles`
   `--write-info-json`や`--write-description`などを使用する際に、ビデオメタデータに加えてプレイリストメタデータも書き込みます（デフォルト）。
 
-- `--no-write-playlist-metafiles`  
+- `--no-write-playlist-metafiles`
   `--write-info-json`や`--write-description`などを使用する際に、プレイリストメタデータを書き込みません。
 
-- `--clean-info-json`  
+- `--clean-info-json`
   `infojson`からファイル名などの内部メタデータを削除します（デフォルト）。
 
-- `--no-clean-info-json`  
+- `--no-clean-info-json`
   `infojson`にすべてのフィールドを記録します。
 
-- `--write-comments`  
-  ビデオのコメントを取得し、`infojson`に書き込みます。このオプションがなくても、抽出が早い場合はコメントが取得されます。  
+- `--write-comments`
+  ビデオのコメントを取得し、`infojson`に書き込みます。このオプションがなくても、抽出が早い場合はコメントが取得されます。
   （エイリアス：`--get-comments`）
 
-- `--no-write-comments`  
-  抽出が早い場合を除き、ビデオのコメントは取得しません。  
+- `--no-write-comments`
+  抽出が早い場合を除き、ビデオのコメントは取得しません。
   （エイリアス：`--no-get-comments`）
 
-- `--load-info-json FILE`  
+- `--load-info-json FILE`
   ビデオ情報を含むJSONファイル（`--write-info-json`オプションで作成）を読み込みます。
 
-- `--cookies FILE`  
+- `--cookies FILE`
   クッキーを読み込むためのNetscape形式のファイル。クッキージャーにダンプも可能です。
 
-- `--no-cookies`  
+- `--no-cookies`
   ファイルからクッキーを読み込んだりダンプしたりしません（デフォルト）。
 
-- `--cookies-from-browser BROWSER[+KEYRING][:PROFILE][::CONTAINER]`  
+- `--cookies-from-browser BROWSER[+KEYRING][:PROFILE][::CONTAINER]`
   クッキーを読み込むためのブラウザ名。サポートされているブラウザは、brave、chrome、chromium、edge、firefox、opera、safari、vivaldi、whaleです。オプションで、ChromiumクッキーをLinuxで復号化するためのKEYRING、クッキーを読み込むPROFILE名/パス、Firefoxの場合はCONTAINER名を指定できます（デフォルトでは最新アクセスされたプロフィールのすべてのコンテナを使用）。
 
-- `--no-cookies-from-browser`  
+- `--no-cookies-from-browser`
   ブラウザからクッキーを読み込まない（デフォルト）。
 
-- `--cache-dir DIR`  
+- `--cache-dir DIR`
   yt-dlpがダウンロードした情報（クライアントIDや署名など）を永続的に保存するファイルシステム上の場所。デフォルトは`${XDG_CACHE_HOME}/yt-dlp`です。
 
-- `--no-cache-dir`  
+- `--no-cache-dir`
   ファイルシステムキャッシュを無効にします。
 
-- `--rm-cache-dir`  
+- `--rm-cache-dir`
   すべてのファイルシステムキャッシュファイルを削除します。
 
 
 
 ### Thumbnail Options
 
-- `--write-thumbnail`  
+- `--write-thumbnail`
   サムネイル画像をディスクに書き込みます。
 
-- `--no-write-thumbnail`  
+- `--no-write-thumbnail`
   サムネイル画像をディスクに書き込まない（デフォルト）。
 
-- `--write-all-thumbnails`  
+- `--write-all-thumbnails`
   すべてのサムネイル画像フォーマットをディスクに書き込みます。
 
-- `--list-thumbnails`  
-  各ビデオの利用可能なサムネイルをリスト表示します。  
+- `--list-thumbnails`
+  各ビデオの利用可能なサムネイルをリスト表示します。
   `--no-simulate` オプションを使用しない場合、シミュレートされます。
 
 
 
 ### Internet Shortcut Options
 
-- `--write-link`  
+- `--write-link`
   現在のプラットフォームに応じたインターネットショートカットファイルを作成します（.url, .webloc, または .desktop）。URLはOSによってキャッシュされる場合があります。
 
-- `--write-url-link`  
+- `--write-url-link`
   .url形式のWindowsインターネットショートカットを作成します。OSはファイルパスに基づいてURLをキャッシュします。
 
-- `--write-webloc-link`  
+- `--write-webloc-link`
   .webloc形式のmacOSインターネットショートカットを作成します。
 
-- `--write-desktop-link`  
+- `--write-desktop-link`
   .desktop形式のLinuxインターネットショートカットを作成します。
 
 
 
 ### Verbosity and Simulation Options
 
-- `-q, --quiet`  
+- `-q, --quiet`
   クワイエットモードを有効にします。`--verbose`オプションと併用した場合、ログは標準エラー出力に表示されます。
 
-- `--no-quiet`  
+- `--no-quiet`
   クワイエットモードを無効にします（デフォルト）。
 
-- `--no-warnings`  
+- `--no-warnings`
   警告を無視します。
 
-- `-s, --simulate`  
+- `-s, --simulate`
   動画をダウンロードせず、ディスクに何も書き込まないシミュレーションモードを有効にします。
 
-- `--no-simulate`  
+- `--no-simulate`
   動画をダウンロードし、オプションの表示やリストが使用されても実際にダウンロードを行います。
 
-- `--ignore-no-formats-error`  
+- `--ignore-no-formats-error`
   "No video formats" エラーを無視します。実際にダウンロード可能な動画がない場合でも、メタデータの抽出ができます（実験的機能）。
 
-- `--no-ignore-no-formats-error`  
+- `--no-ignore-no-formats-error`
   ダウンロード可能な動画フォーマットが見つからない場合、エラーを発生させます（デフォルト）。
 
-- `--skip-download`  
+- `--skip-download`
   動画をダウンロードせず、関連するファイルだけを書き込みます（別名: `--no-download`）。
 
 ### 出力に関する設定
 
-- `-O, --print [WHEN:]TEMPLATE`  
+- `-O, --print [WHEN:]TEMPLATE`
   指定したフィールド名または出力テンプレートを画面に表示します。`WHEN`をオプションとして指定し、いつ表示するかを設定できます。デフォルトは「video」です。複数回使用できます。
 
-- `--print-to-file [WHEN:]TEMPLATE FILE`  
+- `--print-to-file [WHEN:]TEMPLATE FILE`
   指定したテンプレートをファイルに追加します。`WHEN` と `TEMPLATE` の値は `--print` と同じです。ファイルのパスは出力テンプレートと同じ構文を使用します。複数回使用できます。
 
-- `-j, --dump-json`  
+- `-j, --dump-json`
   クワイエットモードで実行し、各動画のJSON情報を表示します。`--no-simulate`が使用されない限りシミュレートモードで動作します。
 
-- `-J, --dump-single-json`  
+- `-J, --dump-single-json`
   クワイエットモードで実行し、各URLまたは`infojson`のJSON情報を表示します。シミュレートモードで動作します。URLがプレイリストを指す場合、プレイリストの全情報が一行で出力されます。
 
-- `--force-write-archive`  
+- `--force-write-archive`
   エラーが発生しない限り、ダウンロードアーカイブのエントリを強制的に書き込みます。シミュレーションオプション（`-s`など）を使用してもアーカイブへの書き込みが行われます（別名: `--force-download-archive`）。
 
-- `--newline`  
+- `--newline`
   進行状況バーを新しい行で表示します。
 
-- `--no-progress`  
+- `--no-progress`
   進行状況バーを表示しません。
 
-- `--progress`  
+- `--progress`
   クワイエットモードでも進行状況バーを表示します。
 
-- `--console-title`  
+- `--console-title`
   コンソールのタイトルバーに進行状況を表示します。
 
-- `--progress-template [TYPES:]TEMPLATE`  
+- `--progress-template [TYPES:]TEMPLATE`
   進行状況の出力テンプレートを指定します。オプションで `download:`（デフォルト）、`download-title:`（コンソールタイトル）、`postprocess:` または `postprocess-title:`を指定できます。
 
-- `--progress-delta SECONDS`  
+- `--progress-delta SECONDS`
   進行状況の出力間隔を秒単位で設定します（デフォルトは 0）。
 
-- `-v, --verbose`  
+- `-v, --verbose`
   各種デバッグ情報を表示します。
 
-- `--dump-pages`  
+- `--dump-pages`
   ダウンロードしたページをbase64エンコードして表示し、問題をデバッグします（非常に詳細な表示）。
 
-- `--write-pages`  
+- `--write-pages`
   ダウンロードした中間ページを現在のディレクトリにファイルとして書き込み、問題をデバッグします。
 
-- `--print-traffic`  
+- `--print-traffic`
   送信および受信したHTTPトラフィックを表示します。
