@@ -119,8 +119,7 @@
   定義されたエイリアスは`--help`でリストされます。エイリアスオプションはさらにエイリアスをトリガーすることがあるので、再帰的なオプションを避けるように注意してください。
   各エイリアスは最大100回までトリガーされます。このオプションは複数回使用可能です。
 
-
-
+<br>
 
   ### Network Options
 
@@ -169,7 +168,7 @@
   - CIDR表記でのIPブロック
   - 2文字のISO 3166-2国コード
 
-
+<br>
 
 ### Video Selection
 
@@ -252,7 +251,7 @@
 - `--skip-playlist-after-errors N`<br>
   プレイリストでエラーが発生した場合、N回の失敗まで許容し、それ以降はプレイリストの残りの部分をスキップします。
 
-
+<br>
 
 ### Download Options
 
@@ -341,8 +340,7 @@
   このオプションは、異なるダウンローダーに異なる引数を渡すために複数回使用できます。
   （エイリアス：`--external-downloader-args`）
 
-
-
+<br>
 
 ### Filesystem Options
 
@@ -459,7 +457,7 @@
 - `--rm-cache-dir`<br>
   すべてのファイルシステムキャッシュファイルを削除します。
 
-
+<br>
 
 ### Thumbnail Options
 
@@ -476,7 +474,7 @@
   各ビデオの利用可能なサムネイルをリスト表示します。
   `--no-simulate` オプションを使用しない場合、シミュレートされます。
 
-
+<br>
 
 ### Internet Shortcut Options
 
@@ -492,7 +490,7 @@
 - `--write-desktop-link`<br>
   .desktop形式のLinuxインターネットショートカットを作成します。
 
-
+<br>
 
 ### Verbosity and Simulation Options
 
