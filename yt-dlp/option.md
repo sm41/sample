@@ -1,4 +1,3 @@
-<!-- # qwerty -->
 
 ### General Options
 
@@ -518,8 +517,6 @@
 - `--skip-download`<br>
   動画をダウンロードせず、関連するファイルだけを書き込みます（別名: `--no-download`）。<br>
 
-### 出力に関する設定
-
 - `-O, --print [WHEN:]TEMPLATE`<br>
   指定したフィールド名または出力テンプレートを画面に表示します。`WHEN`をオプションとして指定し、いつ表示するかを設定できます。デフォルトは「video」です。複数回使用できます。<br>
 
@@ -564,3 +561,326 @@
 
 - `--print-traffic`<br>
   送信および受信したHTTPトラフィックを表示します。<br>
+
+
+### Workarounds
+
+- `--encoding ENCODING`
+  指定したエンコーディングを強制する（実験的）
+
+- `--legacy-server-connect`
+  RFC 5746 セキュアな再交渉をサポートしないサーバーへのHTTPS接続を明示的に許可する
+
+- `--no-check-certificates`
+  HTTPS証明書の検証を抑制する
+
+- `--prefer-insecure`
+  暗号化されていない接続を使用して動画に関する情報を取得する（現在、YouTubeのみサポート）
+
+- `--add-headers FIELD:VALUE`
+  カスタムHTTPヘッダーとその値を指定する。コロン（`:`）で区切ります。<br>
+  このオプションは複数回使用できます
+
+- `--bidi-workaround`
+  双方向テキストサポートがない端末のためのワークアラウンド。<br>
+  `bidiv`または`fribidi`実行可能ファイルがPATHに必要です
+
+- `--sleep-requests SECONDS`
+  データ抽出中にリクエスト間でスリープする秒数
+
+- `--sleep-interval SECONDS`
+  各ダウンロード前にスリープする秒数。このオプションは、`--max-sleep-interval`と一緒に使用する場合の最小スリープ時間です
+  (エイリアス: `--min-sleep-interval`)
+
+- `--max-sleep-interval SECONDS`
+  最大スリープ秒数。`--min-sleep-interval`と一緒に使用する場合のみ使用できます
+
+- `--sleep-subtitles SECONDS`
+  各字幕ダウンロード前にスリープする秒数
+
+
+### Video Format Options
+
+- `-f, --format FORMAT`
+  動画形式コード。詳細は「フォーマット選択」を参照。<br>
+
+- `-S, --format-sort SORTORDER`
+  指定されたフィールドでフォーマットを並べ替える。詳細は「フォーマットの並べ替え」を参照。<br>
+
+- `--format-sort-force`
+  ユーザー指定の並べ替え順が全てのフィールドより優先されるよう強制する。詳細は「フォーマットの並べ替え」を参照
+  (エイリアス: `--S-force`)
+
+- `--no-format-sort-force`
+  一部のフィールドがユーザー指定の並べ替え順より優先される（デフォルト）
+
+- `--video-multistreams`
+  複数の動画ストリームを一つのファイルにマージすることを許可する
+
+- `--no-video-multistreams`
+  各出力ファイルについて、1つの動画ストリームのみをダウンロードする（デフォルト）
+
+- `--audio-multistreams`
+  複数の音声ストリームを一つのファイルにマージすることを許可する
+
+- `--no-audio-multistreams`
+  各出力ファイルについて、1つの音声ストリームのみをダウンロードする（デフォルト）
+
+- `--prefer-free-formats`
+  同じ品質の非無料フォーマットよりも、無料のコンテナを使用した動画フォーマットを優先する。`-S ext`と一緒に使用すると、品質に関係なく無料のコンテナを厳密に優先する
+
+- `--no-prefer-free-formats`
+  無料のコンテナに特別な優先順位を与えない（デフォルト）
+
+- `--check-formats`
+  実際にダウンロード可能なフォーマットの中からのみ選択されているか確認する
+
+- `--check-all-formats`
+  全てのフォーマットが実際にダウンロード可能か確認する
+
+- `--no-check-formats`
+  フォーマットが実際にダウンロード可能か確認しない
+
+- `-F, --list-formats`
+  各動画の利用可能なフォーマットをリスト表示する。`--no-simulate`オプションが使用されていない場合はシミュレーションされます
+
+- `--merge-output-format FORMAT`
+  フォーマットをマージする際に使用できるコンテナを指定する。<br>
+  複数のフォーマットは「/」で区切って指定します。例: "mp4/mkv"。<br>
+  マージが必要ない場合は無視されます。<br>
+  (現在サポートされているコンテナ: avi, flv, mkv, mov, mp4, webm)
+
+
+### Subtitle Options
+
+- `--write-subs`
+  字幕ファイルを保存する
+
+- `--no-write-subs`
+  字幕ファイルを保存しない（デフォルト）
+
+- `--write-auto-subs`
+  自動生成された字幕ファイルを保存する
+  (エイリアス: `--write-automatic-subs`)
+
+- `--no-write-auto-subs`
+  自動生成された字幕を保存しない（デフォルト）
+  (エイリアス: `--no-write-automatic-subs`)
+
+- `--list-subs`
+  各動画の利用可能な字幕をリスト表示する。`--no-simulate`オプションが使用されていない場合はシミュレーションされます
+
+- `--sub-format FORMAT`
+  字幕形式；フォーマットの優先順位を「/」で区切って指定します。例: "srt" または "ass/srt/best"
+
+- `--sub-langs LANGS`
+  ダウンロードする字幕の言語（正規表現を使用可能）または「all」をカンマで区切って指定します。<br>
+  例: `--sub-langs "en.*,ja"`（ここで「en.*」は「en」に続く0個以上の任意の文字に一致する正規表現パターン）。<br>
+  言語コードの前に「-」を付けると、その言語を除外できます。例: `--sub-langs all,-live_chat`
+  利用可能な言語タグのリストを表示するには、`--list-subs`を使用してください
+
+
+### Authentication Options
+
+- `-u, --username USERNAME`
+  このアカウントIDでログインする
+
+- `-p, --password PASSWORD`
+  アカウントのパスワード。このオプションを指定しない場合、`yt-dlp`は対話的にパスワードを尋ねます
+
+- `-2, --twofactor TWOFACTOR`
+  二段階認証コード
+
+- `-n, --netrc`
+  `.netrc`認証データを使用する
+
+- `--netrc-location PATH`
+  `.netrc`認証データの場所。パスまたはそのディレクトリを指定します。デフォルトは`~/.netrc`
+
+- `--netrc-cmd NETRC_CMD`
+  抽出ツールの認証情報を取得するために実行するコマンド
+
+- `--video-password PASSWORD`
+  動画固有のパスワード
+
+- `--ap-mso MSO`
+  Adobe Passの複数システムオペレーター（TVプロバイダー）識別子。<br>
+  利用可能なMSOのリストは`--ap-list-mso`で表示できます
+
+- `--ap-username USERNAME`
+  複数システムオペレーターアカウントのログイン名
+
+- `--ap-password PASSWORD`
+  複数システムオペレーターアカウントのパスワード。<br>
+  このオプションを指定しない場合、`yt-dlp`は対話的にパスワードを尋ねます
+
+- `--ap-list-mso`
+  サポートされている全ての複数システムオペレーターをリスト表示
+
+- `--client-certificate CERTFILE`
+  PEM形式のクライアント証明書ファイルのパス。秘密鍵を含むことがあります
+
+- `--client-certificate-key KEYFILE`
+  クライアント証明書用の秘密鍵ファイルのパス
+
+- `--client-certificate-password PASSWORD`
+  クライアント証明書の秘密鍵のパスワード（暗号化されている場合）。<br>
+  提供されていない場合、秘密鍵が暗号化されているときは`yt-dlp`が対話的に尋ねます
+
+
+
+### Post-Processing Options
+
+- `-x, --extract-audio`
+  動画ファイルを音声のみのファイルに変換する（ffmpeg と ffprobe が必要）
+
+- `--audio-format FORMAT`
+  -x を使用したときに音声を変換する形式。現在サポートされている形式: best（デフォルト）、aac、alac、flac、m4a、mp3、opus、vorbis、wav。`--remux-video`と同じ構文で複数のルールを指定可能
+
+- `--audio-quality QUALITY`
+  -x を使用して音声を変換する際の ffmpeg 音質を指定する。VBRの場合は 0（最高）から 10（最低）の間で値を指定、または 128K のように特定のビットレートを指定できます（デフォルトは 5）
+
+- `--remux-video FORMAT`
+  必要に応じて動画を別のコンテナにリマックスする。現在サポートされている形式: avi、flv、gif、mkv、mov、mp4、webm、aac、aiff、alac、flac、m4a、mka、mp3、ogg、opus、vorbis、wav。ターゲットコンテナが動画/音声コーデックをサポートしていない場合、リマックスは失敗します。複数のルールを指定可能。例: "aac>m4a/mov>mp4/mkv" は aac を m4a に、mov を mp4 に、それ以外は mkv にリマックス
+
+- `--recode-video FORMAT`
+  必要に応じて動画を別の形式に再エンコードします。構文とサポートされている形式は `--remux-video` と同じです
+
+- `--postprocessor-args NAME:ARGS`
+  これらの引数をポストプロセッサに渡します。ポストプロセッサ/実行可能ファイル名と引数をコロン（`:`）で区切って指定します。サポートされているポストプロセッサは以下の通りです：Merger、ModifyChapters、SplitChapters、ExtractAudio、VideoRemuxer、VideoConvertor、Metadata、EmbedSubtitle、EmbedThumbnail、SubtitlesConvertor、ThumbnailsConvertor、FixupStretched、FixupM4a、FixupM3u8、FixupTimestamp、FixupDuration。サポートされている実行可能ファイルは：AtomicParsley、FFmpeg、FFprobe。`"PP+EXE:ARGS"` を指定することで、指定したポストプロセッサにのみ引数を渡すことができます。ffmpeg/ffprobe に対しては、`_i`（入力）または `_o`（出力）をプレフィックスとして付けることができ、その後に番号を付けて引数を指定することができます。例えば、`--ppa "Merger+ffmpeg_i1:-v quiet"`。このオプションは複数回使用可能です（エイリアス: `--ppa`）
+
+- `-k, --keep-video`
+  ポストプロセッシング後に中間の動画ファイルをディスクに残す
+
+- `--no-keep-video`
+  ポストプロセッシング後に中間の動画ファイルを削除する（デフォルト）
+
+- `--post-overwrites`
+  ポストプロセッシング後にファイルを上書きする（デフォルト）
+
+- `--no-post-overwrites`
+  ポストプロセッシング後にファイルを上書きしない
+
+- `--embed-subs`
+  動画に字幕を埋め込む（mp4、webm、mkv の動画のみ）
+
+- `--no-embed-subs`
+  字幕を埋め込まない（デフォルト）
+
+- `--embed-thumbnail`
+  動画にサムネイルをカバーアートとして埋め込む
+
+- `--no-embed-thumbnail`
+  サムネイルを埋め込まない（デフォルト）
+
+- `--embed-metadata`
+  動画ファイルにメタデータを埋め込む。`--no-embed-chapters`/`--no-embed-info-json` が指定されていない限り、チャプター/情報JSONも埋め込まれます（エイリアス: `--add-metadata`）
+
+- `--no-embed-metadata`
+  メタデータをファイルに追加しない（デフォルト）（エイリアス: `--no-add-metadata`）
+
+- `--embed-chapters`
+  動画ファイルにチャプターマーカーを追加する（エイリアス: `--add-chapters`）
+
+- `--no-embed-chapters`
+  チャプターマーカーを追加しない（デフォルト）（エイリアス: `--no-add-chapters`）
+
+- `--embed-info-json`
+  mkv/mka 動画ファイルに infojson を添付として埋め込む
+
+- `--no-embed-info-json`
+  動画ファイルに infojson を添付として埋め込まない
+
+- `--parse-metadata [WHEN:]FROM:TO`
+  他のフィールドからタイトルやアーティストなどの追加メタデータを解析する。詳細は「メタデータの変更」を参照。`WHEN` のサポートされる値は `--use-postprocessor` と同じです（デフォルトは `pre_process`）
+
+- `--replace-in-metadata [WHEN:]FIELDS REGEX REPLACE`
+  メタデータフィールドのテキストを指定された正規表現で置き換える。このオプションは複数回使用可能です。`WHEN` のサポートされる値は `--use-postprocessor` と同じです（デフォルトは `pre_process`）
+
+- `--xattrs`
+  動画ファイルの xattrs にメタデータを書き込む（Dublin Core と XDG 標準を使用）
+
+- `--concat-playlist POLICY`
+  プレイリスト内の動画を連結する。指定可能な値は「never」、「always」、「multi_video」（デフォルト；動画が単一のショーを形成する場合のみ）
+
+- `--fixup POLICY`
+  ファイルの既知の不具合を自動的に修正する。指定可能な値は「never」（何もしない）、「warn」（警告のみ表示）、「detect_or_warn」（デフォルト；修正できれば修正、できなければ警告）、「force」（ファイルが既に存在していても修正を試みる）
+
+- `--ffmpeg-location PATH`
+  ffmpeg バイナリの場所；バイナリまたはそのディレクトリのパス
+
+- `--exec [WHEN:]CMD`
+  コマンドを実行する。実行タイミングを `WHEN` で指定できます。`WHEN` のサポートされる値は `--use-postprocessor` と同じです（デフォルトは `after_move`）。コマンドの引数として出力テンプレートの構文を使用してフィールドを渡すことができます。このオプションは複数回使用可能です
+
+- `--no-exec`
+  以前に定義された `--exec` を削除する
+
+- `--convert-subs FORMAT`
+  字幕を別の形式に変換する（現在サポートされている形式: ass、lrc、srt、vtt）。`--convert-subs none` を使用して変換を無効にできます（デフォルト）（エイリアス: `--convert-subtitles`）
+
+- `--convert-thumbnails FORMAT`
+  サムネイルを別の形式に変換する（現在サポートされている形式: jpg、png、webp）。複数のルールを `--remux-video` と同様の構文で指定可能。`--convert-thumbnails none` を使用して変換を無効にできます（デフォルト）
+
+- `--split-chapters`
+  内部チャプターに基づいて動画を複数のファイルに分割する。「chapter:」プレフィックスを使用して、`--paths` と `--output` に出力ファイル名を設定できます。出力テンプレートの詳細については「OUTPUT TEMPLATE」を参照
+
+- `--no-split-chapters`
+  チャプターに基づいて動画を分割しない（デフォルト）
+
+- `--remove-chapters REGEX`
+  与えられた正規表現に一致するチャプターを削除する。構文は `--download-sections` と同じです。このオプションは複数回使用可能です
+
+- `--no-remove-chapters`
+  チャプターを削除しない（デフォルト）
+
+- `--force-keyframes-at-cuts`
+  ダウンロード/分割/セクション削除時にカットでキーフレームを強制する。これには再エンコードが必要なため遅くなりますが、カット周りのアーティファクトが少なくなる場合があります
+
+- `--no-force-keyframes-at-cuts`
+  カット周りでキーフレームを強制しない（デフォルト）
+
+- `--use-postprocessor NAME[:ARGS]`
+  有効にするポストプロセッサの名前（大文字と小文字が区別されます）と、引数
+
+
+
+### SponsorBlock Options
+
+- `--sponsorblock-mark CATS`
+  チャプターを作成するために使用するSponsorBlockカテゴリを指定します（カンマで区切って複数指定可）。利用可能なカテゴリは、`sponsor`、`intro`、`outro`、`selfpromo`、`preview`、`filler`、`interaction`、`music_offtopic`、`poi_highlight`、`chapter`、`all`、および `default`（=all）です。カテゴリの前に `"-"` を付けることで、そのカテゴリを除外できます。カテゴリの詳細については、[こちら](https://wiki.sponsor.ajay.app/w/Segment_Categories)を参照ください。例：`--sponsorblock-mark all,-preview`
+
+- `--sponsorblock-remove CATS`
+  動画ファイルから削除するSponsorBlockカテゴリを指定します（カンマで区切って複数指定可）。`mark` と `remove` の両方にカテゴリが指定されている場合、`remove` が優先されます。構文と利用可能なカテゴリは `--sponsorblock-mark` と同じですが、`default` は `all,-filler` を意味し、`poi_highlight` と `chapter` は使用できません。<br>
+
+- `--sponsorblock-chapter-title TEMPLATE`
+  `--sponsorblock-mark` で作成されたSponsorBlockチャプターのタイトルの出力テンプレートを指定します。利用可能なフィールドは `start_time`、`end_time`、`category`、`categories`、`name`、`category_names` です。デフォルトは `[SponsorBlock]: %(category_names)l` です。<br>
+
+- `--no-sponsorblock`
+  `--sponsorblock-mark` と `--sponsorblock-remove` の両方を無効にします。<br>
+
+- `--sponsorblock-api URL`
+  SponsorBlock APIのURLを指定します。デフォルトは `https://sponsor.ajay.app` です。<br>
+
+
+
+### Extractor Options
+
+- `--extractor-retries RETRIES`
+  知っている抽出エラーに対する再試行回数を指定します（デフォルトは3回）。`"infinite"`を指定すると無限に再試行します。<br>
+
+- `--allow-dynamic-mpd`
+  動的DASHマニフェストを処理します（デフォルト）。
+  （別名: `--no-ignore-dynamic-mpd`）
+
+- `--ignore-dynamic-mpd`
+  動的DASHマニフェストを処理しません。
+  （別名: `--no-allow-dynamic-mpd`）
+
+- `--hls-split-discontinuity`
+  広告休止時間などの途切れ箇所で、HLSプレイリストを異なるフォーマットに分割します。<br>
+
+- `--no-hls-split-discontinuity`
+  広告休止時間などの途切れ箇所でHLSプレイリストを異なるフォーマットに分割しません（デフォルト）。<br>
+
+- `--extractor-args IE_KEY:ARGS`
+  特定のIE_KEY抽出器に対して引数 `ARGS` を渡します。`"EXTRACTOR ARGUMENTS"` の詳細を参照してください。このオプションは、異なる抽出器に対して引数を渡すために複数回使用できます。<br>
