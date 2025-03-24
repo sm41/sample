@@ -562,6 +562,7 @@
 - `--print-traffic`<br>
   送信および受信したHTTPトラフィックを表示します。<br>
 
+<br>
 
 ### Workarounds
 
@@ -598,6 +599,7 @@
 - `--sleep-subtitles SECONDS`<br>
   各字幕ダウンロード前にスリープする秒数
 
+<br>
 
 ### Video Format Options
 
@@ -650,6 +652,7 @@
   マージが必要ない場合は無視されます。<br>
   (現在サポートされているコンテナ: avi, flv, mkv, mov, mp4, webm)
 
+<br>
 
 ### Subtitle Options
 
@@ -679,6 +682,7 @@
   言語コードの前に「-」を付けると、その言語を除外できます。例: `--sub-langs all,-live_chat`
   利用可能な言語タグのリストを表示するには、`--list-subs`を使用してください
 
+<br>
 
 ### Authentication Options
 
@@ -727,7 +731,7 @@
   クライアント証明書の秘密鍵のパスワード（暗号化されている場合）。<br>
   提供されていない場合、秘密鍵が暗号化されているときは`yt-dlp`が対話的に尋ねます
 
-
+<br>
 
 ### Post-Processing Options
 
@@ -842,18 +846,24 @@
 - `--use-postprocessor NAME[:ARGS]`<br>
   有効にするポストプロセッサの名前（大文字と小文字が区別されます）と、引数
 
-
+<br>
 
 ### SponsorBlock Options
 
 - `--sponsorblock-mark CATS`<br>
-  チャプターを作成するために使用するSponsorBlockカテゴリを指定します（カンマで区切って複数指定可）。利用可能なカテゴリは、`sponsor`、`intro`、`outro`、`selfpromo`、`preview`、`filler`、`interaction`、`music_offtopic`、`poi_highlight`、`chapter`、`all`、および `default`（=all）です。カテゴリの前に `"-"` を付けることで、そのカテゴリを除外できます。カテゴリの詳細については、[こちら](https://wiki.sponsor.ajay.app/w/Segment_Categories)を参照ください。例：`--sponsorblock-mark all,-preview`
+  チャプターを作成するために使用するSponsorBlockカテゴリを指定します（カンマで区切って複数指定可）。<br>
+  利用可能なカテゴリは、`sponsor`、`intro`、`outro`、`selfpromo`、`preview`、`filler`、`interaction`、`music_offtopic`、`poi_highlight`、`chapter`、`all`、および `default`（=all）です。カテゴリの前に `"-"` を付けることで、そのカテゴリを除外できます。<br>
+  カテゴリの詳細については、[こちら](https://wiki.sponsor.ajay.app/w/Segment_Categories)を参照ください。例：`--sponsorblock-mark all,-preview`
 
 - `--sponsorblock-remove CATS`<br>
-  動画ファイルから削除するSponsorBlockカテゴリを指定します（カンマで区切って複数指定可）。`mark` と `remove` の両方にカテゴリが指定されている場合、`remove` が優先されます。構文と利用可能なカテゴリは `--sponsorblock-mark` と同じですが、`default` は `all,-filler` を意味し、`poi_highlight` と `chapter` は使用できません。<br>
+  動画ファイルから削除するSponsorBlockカテゴリを指定します（カンマで区切って複数指定可）。<br>
+  `mark` と `remove` の両方にカテゴリが指定されている場合、`remove` が優先されます。<br>
+  構文と利用可能なカテゴリは `--sponsorblock-mark` と同じですが、`default` は `all,-filler` を意味し、`poi_highlight` と `chapter` は使用できません。<br>
 
 - `--sponsorblock-chapter-title TEMPLATE`<br>
-  `--sponsorblock-mark` で作成されたSponsorBlockチャプターのタイトルの出力テンプレートを指定します。利用可能なフィールドは `start_time`、`end_time`、`category`、`categories`、`name`、`category_names` です。デフォルトは `[SponsorBlock]: %(category_names)l` です。<br>
+  `--sponsorblock-mark` で作成されたSponsorBlockチャプターのタイトルの出力テンプレートを指定します。
+  利用可能なフィールドは `start_time`、`end_time`、`category`、`categories`、`name`、`category_names` です。
+  デフォルトは `[SponsorBlock]: %(category_names)l` です。<br>
 
 - `--no-sponsorblock`<br>
   `--sponsorblock-mark` と `--sponsorblock-remove` の両方を無効にします。<br>
@@ -861,7 +871,7 @@
 - `--sponsorblock-api URL`<br>
   SponsorBlock APIのURLを指定します。デフォルトは `https://sponsor.ajay.app` です。<br>
 
-
+<br>
 
 ### Extractor Options
 
