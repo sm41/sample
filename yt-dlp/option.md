@@ -115,8 +115,10 @@
   引数はPythonの文字列フォーマットに従って解析されます。<br>
   例：`--alias get-audio,-X "-S=aext:{0},abr -x --audio-format {0}"`<br>
   これにより、`--get-audio`と`-X`が作成され、引数`ARG0`を受け取ると`-S=aext:ARG0,abr -x --audio-format ARG0`に展開されます。<br>
-  定義されたエイリアスは`--help`でリストされます。エイリアスオプションはさらにエイリアスをトリガーすることがあるので、再帰的なオプションを避けるように注意してください。<br>
-  各エイリアスは最大100回までトリガーされます。このオプションは複数回使用可能です。<br>
+  定義されたエイリアスは`--help`でリストされます。<br>
+  エイリアスオプションはさらにエイリアスをトリガーすることがあるので、再帰的なオプションを避けるように注意してください。<br>
+  各エイリアスは最大100回までトリガーされます。<br>
+  このオプションは複数回使用可能です。<br>
 
 <br>
 
@@ -152,6 +154,8 @@
 - `--enable-file-urls`<br>
   `file://` URLを有効にします。<br>
   セキュリティ上の理由から、デフォルトでは無効になっています。<br>
+
+<br>
 
 ### Geo-restriction
 
@@ -273,7 +277,10 @@
   フラグメントの再試行回数（デフォルトは10回）、または「infinite」（DASH、hlsnative、ISM）。<br>
 
 - `--retry-sleep [TYPE:]EXPR`<br>
-  再試行の間に睡眠する時間（秒単位）。オプションで再試行タイプ（http（デフォルト）、fragment、file_access、extractor）を指定し、その再試行に適用できます。EXPRには数値、線形（`linear=START[:END[:STEP=1]]`）、または指数（`exp=START[:END[:BASE=2]]`）を使用できます。このオプションは複数回使用して、異なる再試行タイプに対して異なる睡眠時間を設定できます。<br>
+  再試行の間にスリープする時間（秒単位）。<br>
+  オプションで再試行タイプ（http（デフォルト）、fragment、file_access、extractor）を指定し、その再試行に適用できます。<br>
+  EXPRには数値、線形（`linear=START[:END[:STEP=1]]`）、または指数（`exp=START[:END[:BASE=2]]`）を使用できます。<br>
+  このオプションは複数回使用して、異なる再試行タイプに対して異なる時間を設定できます。<br>
 
 - `--skip-unavailable-fragments`<br>
   DASH、hlsnative、ISMダウンロードで利用できないフラグメントをスキップします（デフォルト）。<br>
@@ -299,14 +306,16 @@
   バッファサイズを自動的に調整しません。<br>
 
 - `--http-chunk-size SIZE`<br>
-  チャンクベースのHTTPダウンロードのチャンクサイズ。例：10485760または10M（デフォルトは無効）。<br>
+  チャンクベースのHTTPダウンロードのチャンクサイズ。<br>
+  例：10485760または10M（デフォルトは無効）。<br>
   ウェブサーバーによる帯域制限を回避するために役立つ場合があります（実験的）。<br>
 
 - `--playlist-random`<br>
   プレイリストの動画をランダムな順序でダウンロードします。<br>
 
 - `--lazy-playlist`<br>
-  プレイリストのエントリを受信する際に処理します。これにより`n_entries`、`--playlist-random`、`--playlist-reverse`が無効になります。<br>
+  プレイリストのエントリを受信する際に処理します。<br>
+  これにより`n_entries`、`--playlist-random`、`--playlist-reverse`が無効になります。<br>
 
 - `--no-lazy-playlist`<br>
   プレイリストのすべての動画を解析した後にのみ処理します（デフォルト）。<br>
@@ -315,26 +324,33 @@
   ファイルのx属性`ytdl.filesize`に予想されるファイルサイズを設定します。<br>
 
 - `--hls-use-mpegts`<br>
-  HLSビデオ用にmpegtsコンテナを使用します。これにより、いくつかのプレーヤーでビデオをダウンロード中に再生できるようになり、ダウンロードが中断された場合のファイル破損のリスクが減少します。<br>
+  HLSビデオ用にmpegtsコンテナを使用します。<br>
+  これにより、いくつかのプレーヤーでビデオをダウンロード中に再生できるようになり、ダウンロードが中断された場合のファイル破損のリスクが減少します。<br>
   これはライブストリームのダウンロード時にデフォルトで有効です。<br>
 
 - `--no-hls-use-mpegts`<br>
-  HLSビデオでmpegtsコンテナを使用しません。ライブストリーム以外のダウンロード時はこれがデフォルトです。<br>
+  HLSビデオでmpegtsコンテナを使用しません。<br>
+  ライブストリーム以外のダウンロード時はこれがデフォルトです。<br>
 
 - `--download-sections REGEX`<br>
   正規表現に一致するチャプターのみをダウンロードします。<br>
-  `*`プレフィックスを使うと、チャプターではなく時間範囲を指定できます。負のタイムスタンプは終了から計算されます。<br>
+  `*`プレフィックスを使うと、チャプターではなく時間範囲を指定できます。<br>
+  負のタイムスタンプは終了から計算されます。<br>
   `*from-url`を使うと、URLから抽出した`start_time`と`end_time`の間をダウンロードできます。<br>
-  このオプションは複数回使用して複数のセクションをダウンロードできます。例：`--download-sections "*10:15-inf"`、`--download-sections "intro"`。<br>
+  このオプションは複数回使用して複数のセクションをダウンロードできます。<br>
+  例：`--download-sections "*10:15-inf"`、`--download-sections "intro"`。<br>
 
 - `--downloader [PROTO:]NAME`<br>
-  使用する外部ダウンローダーの名前またはパス。プロトコル（http、ftp、m3u8、dash、rstp、rtmp、mms）を指定して、それに対応するダウンローダーを指定できます。<br>
+  使用する外部ダウンローダーの名前またはパス。<br>
+  プロトコル（http、ftp、m3u8、dash、rstp、rtmp、mms）を指定して、それに対応するダウンローダーを指定できます。<br>
   現在サポートされているダウンローダー：`native`、`aria2c`、`avconv`、`axel`、`curl`、`ffmpeg`、`httpie`、`wget`。<br>
-  このオプションは、異なるプロトコルに対して異なるダウンローダーを設定するために複数回使用できます。例：`--downloader aria2c --downloader "dash,m3u8:native"`は、http/ftpダウンロードにaria2cを、dash/m3u8ダウンロードにnativeダウンローダーを使用します。<br>
+  このオプションは、異なるプロトコルに対して異なるダウンローダーを設定するために複数回使用できます。<br>
+  例：`--downloader aria2c --downloader "dash,m3u8:native"`は、http/ftpダウンロードにaria2cを、dash/m3u8ダウンロードにnativeダウンローダーを使用します。<br>
   （エイリアス：`--external-downloader`）
 
 - `--downloader-args NAME:ARGS`<br>
-  外部ダウンローダーに渡す引数を指定します。ダウンローダー名と引数をコロン`:`で区切って指定します。<br>
+  外部ダウンローダーに渡す引数を指定します。<br>
+  ダウンローダー名と引数をコロン`:`で区切って指定します。<br>
   `ffmpeg`には、`--postprocessor-args`と同じ構文を使って異なる位置に引数を渡すことができます。<br>
   このオプションは、異なるダウンローダーに異なる引数を渡すために複数回使用できます。<br>
   （エイリアス：`--external-downloader-args`）
@@ -344,16 +360,23 @@
 ### Filesystem Options
 
 - `-a, --batch-file FILE`<br>
-  ダウンロードするURLを含むファイル（"-"で標準入力）。各行に1つのURLを記載します。`#`、`;`、または`]`で始まる行はコメントとして扱われ、無視されます。<br>
+  ダウンロードするURLを含むファイル（"-"で標準入力）。各行に1つのURLを記載します。<br>
+  `#`、`;`、または`]`で始まる行はコメントとして扱われ、無視されます。<br>
 
 - `--no-batch-file`<br>
   バッチファイルからURLを読み込まない（デフォルト）。<br>
 
 - `-P, --paths [TYPES:]PATH`<br>
-  ファイルをダウンロードするパスを指定します。ファイルの種類とパスをコロン（`:`）で区切って指定します。`--output`と同じTYPESがサポートされます。さらに、「home」（デフォルト）や「temp」パスを指定することもできます。すべての中間ファイルはまずtempパスにダウンロードされ、ダウンロードが完了した後に最終ファイルがhomeパスに移動されます。このオプションは、`--output`が絶対パスの場合は無視されます。<br>
+  ファイルをダウンロードするパスを指定します。<br>
+  ファイルの種類とパスをコロン（`:`）で区切って指定します。<br>
+  `--output`と同じTYPESがサポートされます。<br>
+  さらに、「home」（デフォルト）や「temp」パスを指定することもできます。<br>
+  すべての中間ファイルはまずtempパスにダウンロードされ、ダウンロードが完了した後に最終ファイルがhomeパスに移動されます。<br>
+  このオプションは、`--output`が絶対パスの場合は無視されます。<br>
 
 - `-o, --output [TYPES:]TEMPLATE`<br>
-  出力ファイル名のテンプレート。詳細は「OUTPUT TEMPLATE」を参照してください。<br>
+  出力ファイル名のテンプレート。<br>
+  詳細は「OUTPUT TEMPLATE」を参照してください。<br>
 
 - `--output-na-placeholder TEXT`<br>
   `--output`に指定されたフィールドが利用できない場合のプレースホルダ（デフォルトは"NA"）。<br>
@@ -377,7 +400,8 @@
   既存のファイルを上書きしません。<br>
 
 - `--force-overwrites`<br>
-  すべてのビデオとメタデータファイルを上書きします。このオプションには`--no-continue`も含まれます。<br>
+  すべてのビデオとメタデータファイルを上書きします。<br>
+  このオプションには`--no-continue`も含まれます。<br>
 
 - `--no-force-overwrites`<br>
   ビデオは上書きせず、関連するファイルのみを上書きします（デフォルト）。<br>
@@ -386,7 +410,8 @@
   部分的にダウンロードされたファイルやフラグメントを再開します（デフォルト）。<br>
 
 - `--no-continue`<br>
-  部分的にダウンロードされたフラグメントを再開しません。ファイルがフラグメントでない場合、ダウンロードは最初からやり直されます。<br>
+  部分的にダウンロードされたフラグメントを再開しません。<br>
+  ファイルがフラグメントでない場合、ダウンロードは最初からやり直されます。<br>
 
 - `--part`<br>
   `.part`ファイルを使用して、出力ファイルに直接書き込まずにダウンロードします（デフォルト）。<br>
@@ -442,13 +467,16 @@
   ファイルからクッキーを読み込んだりダンプしたりしません（デフォルト）。<br>
 
 - `--cookies-from-browser BROWSER[+KEYRING][:PROFILE][::CONTAINER]`<br>
-  クッキーを読み込むためのブラウザ名。サポートされているブラウザは、brave、chrome、chromium、edge、firefox、opera、safari、vivaldi、whaleです。オプションで、ChromiumクッキーをLinuxで復号化するためのKEYRING、クッキーを読み込むPROFILE名/パス、Firefoxの場合はCONTAINER名を指定できます（デフォルトでは最新アクセスされたプロフィールのすべてのコンテナを使用）。<br>
+  クッキーを読み込むためのブラウザ名。<br>
+  サポートされているブラウザは、brave、chrome、chromium、edge、firefox、opera、safari、vivaldi、whaleです。<br>
+  オプションで、ChromiumクッキーをLinuxで復号化するためのKEYRING、クッキーを読み込むPROFILE名/パス、Firefoxの場合はCONTAINER名を指定できます（デフォルトでは最新アクセスされたプロフィールのすべてのコンテナを使用）。<br>
 
 - `--no-cookies-from-browser`<br>
   ブラウザからクッキーを読み込まない（デフォルト）。<br>
 
 - `--cache-dir DIR`<br>
-  yt-dlpがダウンロードした情報（クライアントIDや署名など）を永続的に保存するファイルシステム上の場所。デフォルトは`${XDG_CACHE_HOME}/yt-dlp`です。<br>
+  yt-dlpがダウンロードした情報（クライアントIDや署名など）を永続的に保存するファイルシステム上の場所。<br>
+  デフォルトは`${XDG_CACHE_HOME}/yt-dlp`です。<br>
 
 - `--no-cache-dir`<br>
   ファイルシステムキャッシュを無効にします。<br>
@@ -478,10 +506,13 @@
 ### Internet Shortcut Options
 
 - `--write-link`<br>
-  現在のプラットフォームに応じたインターネットショートカットファイルを作成します（.url, .webloc, または .desktop）。URLはOSによってキャッシュされる場合があります。<br>
+  現在のプラットフォームに応じたインターネットショートカットファイルを作成します。<br>
+  （.url, .webloc, または .desktop）<br>
+  URLはOSによってキャッシュされる場合があります。<br>
 
 - `--write-url-link`<br>
-  .url形式のWindowsインターネットショートカットを作成します。OSはファイルパスに基づいてURLをキャッシュします。<br>
+  .url形式のWindowsインターネットショートカットを作成します。<br>
+  OSはファイルパスに基づいてURLをキャッシュします。<br>
 
 - `--write-webloc-link`<br>
   .webloc形式のmacOSインターネットショートカットを作成します。<br>
@@ -494,7 +525,8 @@
 ### Verbosity and Simulation Options
 
 - `-q, --quiet`<br>
-  クワイエットモードを有効にします。`--verbose`オプションと併用した場合、ログは標準エラー出力に表示されます。<br>
+  クワイエットモードを有効にします。<br>
+  `--verbose`オプションと併用した場合、ログは標準エラー出力に表示されます。<br>
 
 - `--no-quiet`<br>
   クワイエットモードを無効にします（デフォルト）。<br>
@@ -509,7 +541,8 @@
   動画をダウンロードし、オプションの表示やリストが使用されても実際にダウンロードを行います。<br>
 
 - `--ignore-no-formats-error`<br>
-  "No video formats" エラーを無視します。実際にダウンロード可能な動画がない場合でも、メタデータの抽出ができます（実験的機能）。<br>
+  "No video formats" エラーを無視します。<br>
+  実際にダウンロード可能な動画がない場合でも、メタデータの抽出ができます（実験的機能）。<br>
 
 - `--no-ignore-no-formats-error`<br>
   ダウンロード可能な動画フォーマットが見つからない場合、エラーを発生させます（デフォルト）。<br>
@@ -518,19 +551,28 @@
   動画をダウンロードせず、関連するファイルだけを書き込みます（別名: `--no-download`）。<br>
 
 - `-O, --print [WHEN:]TEMPLATE`<br>
-  指定したフィールド名または出力テンプレートを画面に表示します。`WHEN`をオプションとして指定し、いつ表示するかを設定できます。デフォルトは「video」です。複数回使用できます。<br>
+  指定したフィールド名または出力テンプレートを画面に表示します。<br>
+  `WHEN`をオプションとして指定し、いつ表示するかを設定できます。<br>
+  デフォルトは「video」です。複数回使用できます。<br>
 
 - `--print-to-file [WHEN:]TEMPLATE FILE`<br>
-  指定したテンプレートをファイルに追加します。`WHEN` と `TEMPLATE` の値は `--print` と同じです。ファイルのパスは出力テンプレートと同じ構文を使用します。複数回使用できます。<br>
+  指定したテンプレートをファイルに追加します。<br>
+  `WHEN` と `TEMPLATE` の値は `--print` と同じです。<br>
+  ファイルのパスは出力テンプレートと同じ構文を使用します。複数回使用できます。<br>
 
 - `-j, --dump-json`<br>
-  クワイエットモードで実行し、各動画のJSON情報を表示します。`--no-simulate`が使用されない限りシミュレートモードで動作します。<br>
+  クワイエットモードで実行し、各動画のJSON情報を表示します。<br>
+  `--no-simulate`が使用されない限りシミュレートモードで動作します。<br>
 
 - `-J, --dump-single-json`<br>
-  クワイエットモードで実行し、各URLまたは`infojson`のJSON情報を表示します。シミュレートモードで動作します。URLがプレイリストを指す場合、プレイリストの全情報が一行で出力されます。<br>
+  クワイエットモードで実行し、各URLまたは`infojson`のJSON情報を表示します。<br>
+  シミュレートモードで動作します。<br>
+  URLがプレイリストを指す場合、プレイリストの全情報が一行で出力されます。<br>
 
 - `--force-write-archive`<br>
-  エラーが発生しない限り、ダウンロードアーカイブのエントリを強制的に書き込みます。シミュレーションオプション（`-s`など）を使用してもアーカイブへの書き込みが行われます（別名: `--force-download-archive`）。<br>
+  エラーが発生しない限り、ダウンロードアーカイブのエントリを強制的に書き込みます。<br>
+  シミュレーションオプション（`-s`など）を使用してもアーカイブへの書き込みが行われます。<br>
+  （別名: `--force-download-archive`）
 
 - `--newline`<br>
   進行状況バーを新しい行で表示します。<br>
@@ -545,7 +587,8 @@
   コンソールのタイトルバーに進行状況を表示します。<br>
 
 - `--progress-template [TYPES:]TEMPLATE`<br>
-  進行状況の出力テンプレートを指定します。オプションで `download:`（デフォルト）、`download-title:`（コンソールタイトル）、`postprocess:` または `postprocess-title:`を指定できます。<br>
+  進行状況の出力テンプレートを指定します。<br>
+  オプションで `download:`（デフォルト）、`download-title:`（コンソールタイトル）、`postprocess:` または `postprocess-title:`を指定できます。
 
 - `--progress-delta SECONDS`<br>
   進行状況の出力間隔を秒単位で設定します（デフォルトは 0）。<br>
@@ -590,11 +633,13 @@
   データ抽出中にリクエスト間でスリープする秒数
 
 - `--sleep-interval SECONDS`<br>
-  各ダウンロード前にスリープする秒数。このオプションは、`--max-sleep-interval`と一緒に使用する場合の最小スリープ時間です
+  各ダウンロード前にスリープする秒数。<br>
+  このオプションは、`--max-sleep-interval`と一緒に使用する場合の最小スリープ時間です。
   (エイリアス: `--min-sleep-interval`)
 
 - `--max-sleep-interval SECONDS`<br>
-  最大スリープ秒数。`--min-sleep-interval`と一緒に使用する場合のみ使用できます
+  最大スリープ秒数。<br>
+  `--min-sleep-interval`と一緒に使用する場合のみ使用できます
 
 - `--sleep-subtitles SECONDS`<br>
   各字幕ダウンロード前にスリープする秒数
@@ -671,7 +716,8 @@
   (エイリアス: `--no-write-automatic-subs`)
 
 - `--list-subs`<br>
-  各動画の利用可能な字幕をリスト表示する。`--no-simulate`オプションが使用されていない場合はシミュレーションされます
+  各動画の利用可能な字幕をリスト表示する。<br>
+  `--no-simulate`オプションが使用されていない場合はシミュレーションされます
 
 - `--sub-format FORMAT`<br>
   字幕形式；フォーマットの優先順位を「/」で区切って指定します。例: "srt" または "ass/srt/best"
@@ -739,19 +785,30 @@
   動画ファイルを音声のみのファイルに変換する（ffmpeg と ffprobe が必要）
 
 - `--audio-format FORMAT`<br>
-  -x を使用したときに音声を変換する形式。現在サポートされている形式: best（デフォルト）、aac、alac、flac、m4a、mp3、opus、vorbis、wav。`--remux-video`と同じ構文で複数のルールを指定可能
+  -x を使用したときに音声を変換する形式。<br>
+  現在サポートされている形式: `best`（デフォルト）、`aac`、`alac`、`flac`、`m4a`、`mp3`、`opus`、`vorbis`、`wav`。`--remux-video`と同じ構文で複数のルールを指定可能
 
 - `--audio-quality QUALITY`<br>
-  -x を使用して音声を変換する際の ffmpeg 音質を指定する。VBRの場合は 0（最高）から 10（最低）の間で値を指定、または 128K のように特定のビットレートを指定できます（デフォルトは 5）
+  -x を使用して音声を変換する際の ffmpeg 音質を指定する。<br>
+  VBRの場合は 0（最高）から 10（最低）の間で値を指定、または 128K のように特定のビットレートを指定できます（デフォルトは 5）
 
 - `--remux-video FORMAT`<br>
-  必要に応じて動画を別のコンテナにリマックスする。現在サポートされている形式: avi、flv、gif、mkv、mov、mp4、webm、aac、aiff、alac、flac、m4a、mka、mp3、ogg、opus、vorbis、wav。ターゲットコンテナが動画/音声コーデックをサポートしていない場合、リマックスは失敗します。複数のルールを指定可能。例: "aac>m4a/mov>mp4/mkv" は aac を m4a に、mov を mp4 に、それ以外は mkv にリマックス
+  必要に応じて動画を別のコンテナにリマックスする。<br>
+  現在サポートされている形式: `avi`、`flv`、`gif`、`mkv`、`mov`、`mp4`、`webm`、`aac`、`aiff`、`alac`、`flac`、`m4a`、`mka`、`mp3`、`ogg`、`opus`、`vorbis`、`wav`。<br>
+  ターゲットコンテナが動画/音声コーデックをサポートしていない場合、リマックスは失敗します。<br>
+  複数のルールを指定可能。例: "aac>m4a/mov>mp4/mkv" は aac を m4a に、mov を mp4 に、それ以外は mkv にリマックス
 
 - `--recode-video FORMAT`<br>
-  必要に応じて動画を別の形式に再エンコードします。構文とサポートされている形式は `--remux-video` と同じです
+  必要に応じて動画を別の形式に再エンコードします。<br>
+  構文とサポートされている形式は `--remux-video` と同じです
 
 - `--postprocessor-args NAME:ARGS`<br>
-  これらの引数をポストプロセッサに渡します。ポストプロセッサ/実行可能ファイル名と引数をコロン（`:`）で区切って指定します。サポートされているポストプロセッサは以下の通りです：Merger、ModifyChapters、SplitChapters、ExtractAudio、VideoRemuxer、VideoConvertor、Metadata、EmbedSubtitle、EmbedThumbnail、SubtitlesConvertor、ThumbnailsConvertor、FixupStretched、FixupM4a、FixupM3u8、FixupTimestamp、FixupDuration。サポートされている実行可能ファイルは：AtomicParsley、FFmpeg、FFprobe。`"PP+EXE:ARGS"` を指定することで、指定したポストプロセッサにのみ引数を渡すことができます。ffmpeg/ffprobe に対しては、`_i`（入力）または `_o`（出力）をプレフィックスとして付けることができ、その後に番号を付けて引数を指定することができます。例えば、`--ppa "Merger+ffmpeg_i1:-v quiet"`。このオプションは複数回使用可能です（エイリアス: `--ppa`）
+  これらの引数をポストプロセッサに渡します。<br>
+  ポストプロセッサ/実行可能ファイル名と引数をコロン（`:`）で区切って指定します。<br>
+  サポートされているポストプロセッサは以下の通りです： `Merger`、`ModifyChapters`、`SplitChapters`、`ExtractAudio`、`VideoRemuxer`、`VideoConvertor`、`Metadata`、`EmbedSubtitle`、`EmbedThumbnail`、`SubtitlesConvertor`、`ThumbnailsConvertor`、`FixupStretched`、`FixupM4a`、`FixupM3u8`、`FixupTimestamp`、`FixupDuration`。<br>
+  サポートされている実行可能ファイルは：AtomicParsley、FFmpeg、FFprobe。`"PP+EXE:ARGS"` を指定することで、指定したポストプロセッサにのみ引数を渡すことができます。<br>
+  ffmpeg/ffprobe に対しては、`_i`（入力）または `_o`（出力）をプレフィックスとして付けることができ、その後に番号を付けて引数を指定することができます。<br>
+  例えば、`--ppa "Merger+ffmpeg_i1:-v quiet"`。このオプションは複数回使用可能です（エイリアス: `--ppa`）
 
 - `-k, --keep-video`<br>
   ポストプロセッシング後に中間の動画ファイルをディスクに残す
@@ -778,7 +835,8 @@
   サムネイルを埋め込まない（デフォルト）
 
 - `--embed-metadata`<br>
-  動画ファイルにメタデータを埋め込む。`--no-embed-chapters`/`--no-embed-info-json` が指定されていない限り、チャプター/情報JSONも埋め込まれます（エイリアス: `--add-metadata`）
+  動画ファイルにメタデータを埋め込む。<br>
+  `--no-embed-chapters`/`--no-embed-info-json` が指定されていない限り、チャプター/情報JSONも埋め込まれます（エイリアス: `--add-metadata`）
 
 - `--no-embed-metadata`<br>
   メタデータをファイルに追加しない（デフォルト）（エイリアス: `--no-add-metadata`）
@@ -796,49 +854,61 @@
   動画ファイルに infojson を添付として埋め込まない
 
 - `--parse-metadata [WHEN:]FROM:TO`<br>
-  他のフィールドからタイトルやアーティストなどの追加メタデータを解析する。詳細は「メタデータの変更」を参照。`WHEN` のサポートされる値は `--use-postprocessor` と同じです（デフォルトは `pre_process`）
+  他のフィールドからタイトルやアーティストなどの追加メタデータを解析する。<br>
+  詳細は「メタデータの変更」を参照。`WHEN` のサポートされる値は `--use-postprocessor` と同じです（デフォルトは `pre_process`）
 
 - `--replace-in-metadata [WHEN:]FIELDS REGEX REPLACE`<br>
-  メタデータフィールドのテキストを指定された正規表現で置き換える。このオプションは複数回使用可能です。`WHEN` のサポートされる値は `--use-postprocessor` と同じです（デフォルトは `pre_process`）
+  メタデータフィールドのテキストを指定された正規表現で置き換える。<br>
+  このオプションは複数回使用可能です。`WHEN` のサポートされる値は `--use-postprocessor` と同じです（デフォルトは `pre_process`）
 
 - `--xattrs`<br>
   動画ファイルの xattrs にメタデータを書き込む（Dublin Core と XDG 標準を使用）
 
 - `--concat-playlist POLICY`<br>
-  プレイリスト内の動画を連結する。指定可能な値は「never」、「always」、「multi_video」（デフォルト；動画が単一のショーを形成する場合のみ）
+  プレイリスト内の動画を連結する。<br>
+  指定可能な値は「never」、「always」、「multi_video」（デフォルト；動画が単一のショーを形成する場合のみ）
 
 - `--fixup POLICY`<br>
-  ファイルの既知の不具合を自動的に修正する。指定可能な値は「never」（何もしない）、「warn」（警告のみ表示）、「detect_or_warn」（デフォルト；修正できれば修正、できなければ警告）、「force」（ファイルが既に存在していても修正を試みる）
+  ファイルの既知の不具合を自動的に修正する。<br>
+  指定可能な値は「never」（何もしない）、「warn」（警告のみ表示）、「detect_or_warn」（デフォルト；修正できれば修正、できなければ警告）、「force」（ファイルが既に存在していても修正を試みる）
 
 - `--ffmpeg-location PATH`<br>
   ffmpeg バイナリの場所；バイナリまたはそのディレクトリのパス
 
 - `--exec [WHEN:]CMD`<br>
-  コマンドを実行する。実行タイミングを `WHEN` で指定できます。`WHEN` のサポートされる値は `--use-postprocessor` と同じです（デフォルトは `after_move`）。コマンドの引数として出力テンプレートの構文を使用してフィールドを渡すことができます。このオプションは複数回使用可能です
+  コマンドを実行する。実行タイミングを `WHEN` で指定できます。<br>
+  `WHEN` のサポートされる値は `--use-postprocessor` と同じです（デフォルトは `after_move`）。<br>
+  コマンドの引数として出力テンプレートの構文を使用してフィールドを渡すことができます。このオプションは複数回使用可能です
 
 - `--no-exec`<br>
   以前に定義された `--exec` を削除する
 
 - `--convert-subs FORMAT`<br>
-  字幕を別の形式に変換する（現在サポートされている形式: ass、lrc、srt、vtt）。`--convert-subs none` を使用して変換を無効にできます（デフォルト）（エイリアス: `--convert-subtitles`）
+  字幕を別の形式に変換する（現在サポートされている形式: ass、lrc、srt、vtt）。<br>
+  `--convert-subs none` を使用して変換を無効にできます（デフォルト）（エイリアス: `--convert-subtitles`）
 
 - `--convert-thumbnails FORMAT`<br>
-  サムネイルを別の形式に変換する（現在サポートされている形式: jpg、png、webp）。複数のルールを `--remux-video` と同様の構文で指定可能。`--convert-thumbnails none` を使用して変換を無効にできます（デフォルト）
+  サムネイルを別の形式に変換する（現在サポートされている形式: jpg、png、webp）。<br>
+  複数のルールを `--remux-video` と同様の構文で指定可能。`--convert-thumbnails none` を使用して変換を無効にできます（デフォルト）
 
 - `--split-chapters`<br>
-  内部チャプターに基づいて動画を複数のファイルに分割する。「chapter:」プレフィックスを使用して、`--paths` と `--output` に出力ファイル名を設定できます。出力テンプレートの詳細については「OUTPUT TEMPLATE」を参照
+  内部チャプターに基づいて動画を複数のファイルに分割する。<br>
+  「chapter:」プレフィックスを使用して、`--paths` と `--output` に出力ファイル名を設定できます。<br>
+  出力テンプレートの詳細については「OUTPUT TEMPLATE」を参照
 
 - `--no-split-chapters`<br>
   チャプターに基づいて動画を分割しない（デフォルト）
 
 - `--remove-chapters REGEX`<br>
-  与えられた正規表現に一致するチャプターを削除する。構文は `--download-sections` と同じです。このオプションは複数回使用可能です
+  与えられた正規表現に一致するチャプターを削除する。<br>
+  構文は `--download-sections` と同じです。このオプションは複数回使用可能です
 
 - `--no-remove-chapters`<br>
   チャプターを削除しない（デフォルト）
 
 - `--force-keyframes-at-cuts`<br>
-  ダウンロード/分割/セクション削除時にカットでキーフレームを強制する。これには再エンコードが必要なため遅くなりますが、カット周りのアーティファクトが少なくなる場合があります
+  ダウンロード/分割/セクション削除時にカットでキーフレームを強制する。<br>
+  これには再エンコードが必要なため遅くなりますが、カット周りのアーティファクトが少なくなる場合があります
 
 - `--no-force-keyframes-at-cuts`<br>
   カット周りでキーフレームを強制しない（デフォルト）
@@ -861,8 +931,8 @@
   構文と利用可能なカテゴリは `--sponsorblock-mark` と同じですが、`default` は `all,-filler` を意味し、`poi_highlight` と `chapter` は使用できません。<br>
 
 - `--sponsorblock-chapter-title TEMPLATE`<br>
-  `--sponsorblock-mark` で作成されたSponsorBlockチャプターのタイトルの出力テンプレートを指定します。
-  利用可能なフィールドは `start_time`、`end_time`、`category`、`categories`、`name`、`category_names` です。
+  `--sponsorblock-mark` で作成されたSponsorBlockチャプターのタイトルの出力テンプレートを指定します。<br>
+  利用可能なフィールドは `start_time`、`end_time`、`category`、`categories`、`name`、`category_names` です。<br>
   デフォルトは `[SponsorBlock]: %(category_names)l` です。<br>
 
 - `--no-sponsorblock`<br>
@@ -876,14 +946,15 @@
 ### Extractor Options
 
 - `--extractor-retries RETRIES`<br>
-  知っている抽出エラーに対する再試行回数を指定します（デフォルトは3回）。`"infinite"`を指定すると無限に再試行します。<br>
+  知っている抽出エラーに対する再試行回数を指定します（デフォルトは3回）。<br>
+  `"infinite"`を指定すると無限に再試行します。<br>
 
 - `--allow-dynamic-mpd`<br>
-  動的DASHマニフェストを処理します（デフォルト）。
+  動的DASHマニフェストを処理します（デフォルト）。<br>
   （別名: `--no-ignore-dynamic-mpd`）
 
 - `--ignore-dynamic-mpd`<br>
-  動的DASHマニフェストを処理しません。
+  動的DASHマニフェストを処理しません。<br>
   （別名: `--no-allow-dynamic-mpd`）
 
 - `--hls-split-discontinuity`<br>
@@ -893,4 +964,5 @@
   広告休止時間などの途切れ箇所でHLSプレイリストを異なるフォーマットに分割しません（デフォルト）。<br>
 
 - `--extractor-args IE_KEY:ARGS`<br>
-  特定のIE_KEY抽出器に対して引数 `ARGS` を渡します。`"EXTRACTOR ARGUMENTS"` の詳細を参照してください。このオプションは、異なる抽出器に対して引数を渡すために複数回使用できます。<br>
+  特定のIE_KEY抽出器に対して引数 `ARGS` を渡します。<br>
+  `"EXTRACTOR ARGUMENTS"` の詳細を参照してください。このオプションは、異なる抽出器に対して引数を渡すために複数回使用できます。<br>
