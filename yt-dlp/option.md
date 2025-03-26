@@ -693,9 +693,9 @@
 
 - `--merge-output-format FORMAT`<br>
   フォーマットをマージする際に使用できるコンテナを指定する。<br>
-  複数のフォーマットは「/」で区切って指定します。例: "mp4/mkv"。<br>
+  複数のフォーマットは「/」で区切って指定します。例: `"mp4/mkv"`。<br>
   マージが必要ない場合は無視されます。<br>
-  (現在サポートされているコンテナ: avi, flv, mkv, mov, mp4, webm)
+  (現在サポートされているコンテナ: `avi`, `flv`, `mkv`, `mov`, `mp4`, `webm`)
 
 <br>
 
@@ -796,7 +796,7 @@
   必要に応じて動画を別のコンテナにリマックスする。<br>
   現在サポートされている形式: `avi`、`flv`、`gif`、`mkv`、`mov`、`mp4`、`webm`、`aac`、`aiff`、`alac`、`flac`、`m4a`、`mka`、`mp3`、`ogg`、`opus`、`vorbis`、`wav`。<br>
   ターゲットコンテナが動画/音声コーデックをサポートしていない場合、リマックスは失敗します。<br>
-  複数のルールを指定可能。例: "aac>m4a/mov>mp4/mkv" は aac を m4a に、mov を mp4 に、それ以外は mkv にリマックス
+  複数のルールを指定可能。例: `"aac>m4a/mov>mp4/mkv"` は aac を m4a に、mov を mp4 に、それ以外は mkv にリマックス
 
 - `--recode-video FORMAT`<br>
   必要に応じて動画を別の形式に再エンコードします。<br>
@@ -878,7 +878,8 @@
 - `--exec [WHEN:]CMD`<br>
   コマンドを実行する。実行タイミングを `WHEN` で指定できます。<br>
   `WHEN` のサポートされる値は `--use-postprocessor` と同じです（デフォルトは `after_move`）。<br>
-  コマンドの引数として出力テンプレートの構文を使用してフィールドを渡すことができます。このオプションは複数回使用可能です
+  コマンドの引数として出力テンプレートの構文を使用してフィールドを渡すことができます。<br>
+  このオプションは複数回使用可能です
 
 - `--no-exec`<br>
   以前に定義された `--exec` を削除する
@@ -939,7 +940,8 @@
   `--sponsorblock-mark` と `--sponsorblock-remove` の両方を無効にします。<br>
 
 - `--sponsorblock-api URL`<br>
-  SponsorBlock APIのURLを指定します。デフォルトは `https://sponsor.ajay.app` です。<br>
+  SponsorBlock APIのURLを指定します。<br>
+  デフォルトは `https://sponsor.ajay.app` です。<br>
 
 <br>
 
@@ -965,4 +967,5 @@
 
 - `--extractor-args IE_KEY:ARGS`<br>
   特定のIE_KEY抽出器に対して引数 `ARGS` を渡します。<br>
-  `"EXTRACTOR ARGUMENTS"` の詳細を参照してください。このオプションは、異なる抽出器に対して引数を渡すために複数回使用できます。<br>
+  `"EXTRACTOR ARGUMENTS"` の詳細を参照してください。<br>
+  このオプションは、異なる抽出器に対して引数を渡すために複数回使用できます。<br>
