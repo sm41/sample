@@ -1,5 +1,5 @@
 
-### General Options
+## General Options
 
 - `-h, --help`<br>
   ヘルプテキストを表示して終了
@@ -122,7 +122,7 @@
 
 <br>
 
-### Network Options
+## Network Options
 
 - `--proxy URL`<br>
   指定したHTTP/HTTPS/SOCKSプロキシを使用します。<br>
@@ -157,7 +157,7 @@
 
 <br>
 
-### Geo-restriction
+## Geo-restriction
 
 - `--geo-verification-proxy URL`<br>
   一部の地域制限されたサイトのIPアドレスを確認するために、このプロキシを使用します。<br>
@@ -173,7 +173,7 @@
 
 <br>
 
-### Video Selection
+## Video Selection
 
 - `-I, --playlist-items ITEM_SPEC`<br>
   ダウンロードするアイテムのプレイリストインデックスをカンマ区切りで指定します。<br>
@@ -256,7 +256,7 @@
 
 <br>
 
-### Download Options
+## Download Options
 
 - `-N, --concurrent-fragments N`<br>
   DASH/hlsnativeビデオのフラグメントを並行してダウンロードする数（デフォルトは1）。<br>
@@ -357,7 +357,7 @@
 
 <br>
 
-### Filesystem Options
+## Filesystem Options
 
 - `-a, --batch-file FILE`<br>
   ダウンロードするURLを含むファイル（"-"で標準入力）。各行に1つのURLを記載します。<br>
@@ -486,7 +486,7 @@
 
 <br>
 
-### Thumbnail Options
+## Thumbnail Options
 
 - `--write-thumbnail`<br>
   サムネイル画像をディスクに書き込みます。<br>
@@ -503,7 +503,7 @@
 
 <br>
 
-### Internet Shortcut Options
+## Internet Shortcut Options
 
 - `--write-link`<br>
   現在のプラットフォームに応じたインターネットショートカットファイルを作成します。<br>
@@ -522,7 +522,7 @@
 
 <br>
 
-### Verbosity and Simulation Options
+## Verbosity and Simulation Options
 
 - `-q, --quiet`<br>
   クワイエットモードを有効にします。<br>
@@ -607,7 +607,7 @@
 
 <br>
 
-### Workarounds
+## Workarounds
 
 - `--encoding ENCODING`<br>
   指定したエンコーディングを強制する（実験的）
@@ -646,7 +646,7 @@
 
 <br>
 
-### Video Format Options
+## Video Format Options
 
 - `-f, --format FORMAT`<br>
   動画形式コード。詳細は「フォーマット選択」を参照。<br>
@@ -699,7 +699,7 @@
 
 <br>
 
-### Subtitle Options
+## Subtitle Options
 
 - `--write-subs`<br>
   字幕ファイルを保存する
@@ -730,7 +730,7 @@
 
 <br>
 
-### Authentication Options
+## Authentication Options
 
 - `-u, --username USERNAME`<br>
   このアカウントIDでログインする
@@ -779,7 +779,7 @@
 
 <br>
 
-### Post-Processing Options
+## Post-Processing Options
 
 - `-x, --extract-audio`<br>
   動画ファイルを音声のみのファイルに変換する（ffmpeg と ffprobe が必要）
@@ -919,7 +919,7 @@
 
 <br>
 
-### SponsorBlock Options
+## SponsorBlock Options
 
 - `--sponsorblock-mark CATS`<br>
   チャプターを作成するために使用するSponsorBlockカテゴリを指定します（カンマで区切って複数指定可）。<br>
@@ -945,7 +945,7 @@
 
 <br>
 
-### Extractor Options
+## Extractor Options
 
 - `--extractor-retries RETRIES`<br>
   知っている抽出エラーに対する再試行回数を指定します（デフォルトは3回）。<br>
