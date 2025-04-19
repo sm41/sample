@@ -10,3 +10,7 @@
 ## yt-dlp-wiki
 [https://github.com/yt-dlp/yt-dlp-wiki](https://github.com/yt-dlp/yt-dlp-wiki) のオプションをAIに翻訳させたもの
 - Installation
+
+
+## YouTube
+- YouTube のキーボード ショートカット [🔗](/youtube/keyboard-shotcut.md)
