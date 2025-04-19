@@ -13,4 +13,4 @@
 
 
 ## YouTube
-- YouTube のキーボード ショートカット [🔗](/youtube/keyboard-shotcut.md)
+- YouTube のキーボード ショートカット [🔗](/youtube/keyboard-shortcut.md)
