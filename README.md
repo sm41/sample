@@ -9,7 +9,7 @@
 
 ## yt-dlp-wiki
 [https://github.com/yt-dlp/yt-dlp-wiki](https://github.com/yt-dlp/yt-dlp-wiki) のオプションをAIに翻訳させたもの
-- Installation
+- [Installation](/yt-dlp-wiki/Installation.md)
 
 
 ## YouTube
